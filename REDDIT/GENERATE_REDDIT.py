@@ -1,7 +1,7 @@
 import praw
 
 # Function to load previously fetched subjects
-def load_done_subjects():
+def load_done_subjects(DONE_SUBJECTS_FILE):
     try:
         with open(DONE_SUBJECTS_FILE, "r") as file:
             return set(file.read().splitlines())
@@ -9,12 +9,12 @@ def load_done_subjects():
         return set()
 
 # Function to save a new subject
-def save_done_subject(post_id):
+def save_done_subject(post_id,DONE_SUBJECTS_FILE):
     with open(DONE_SUBJECTS_FILE, "a") as file:
         file.write(post_id + "\n")
 
 # Function to save a new subject
-def save_content(text):
+def save_content(text,SAVE_CONTENT_FILE):
     with open(SAVE_CONTENT_FILE, "w") as file_to_save:
         file_to_save.write(text)
 
@@ -34,7 +34,7 @@ def create_content(CLIENT_ID,CLIENT_SECRET,USER_AGENT):
     subreddit = reddit.subreddit("AskReddit")
     posts = list(subreddit.hot(limit=100))  # Fetch 100 hot posts
     # Load previously fetched subjects
-    done_subjects = load_done_subjects()
+    done_subjects = load_done_subjects(DONE_SUBJECTS_FILE)
     # Filter out posts that have been fetched before
     new_posts = [post for post in posts if post.id not in done_subjects]
     if not new_posts:
@@ -43,7 +43,7 @@ def create_content(CLIENT_ID,CLIENT_SECRET,USER_AGENT):
     # Select the most engaging post (e.g., highest number of comments)
     most_engaging_post = max(new_posts, key=lambda post: post.num_comments)
     # Save the post ID to avoid fetching it again
-    save_done_subject(most_engaging_post.id)
+    save_done_subject(most_engaging_post.id,DONE_SUBJECTS_FILE)
     # Save the post & content
     text = ""
     for i, comment in enumerate(most_engaging_post.comments.list(), 1):
@@ -52,5 +52,6 @@ def create_content(CLIENT_ID,CLIENT_SECRET,USER_AGENT):
                 text += f"{comment.body}"
         except:
             pass
-    save_content(text)
+    save_content(text,SAVE_CONTENT_FILE)
+    return text
 
