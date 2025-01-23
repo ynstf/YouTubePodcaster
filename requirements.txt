@@ -9,3 +9,6 @@ google-auth
 google-auth-oauthlib
 google-auth-httplib2
 python-dotenv
+moviepy==1.0.3
+mutagen
+lameenc

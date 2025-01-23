@@ -1,0 +1,4 @@
+    Make me a prompt to generate a song about a podcast.
+    and I want the music to be calme.
+    Include details like instruments, tempo, and atmosphere.
+    The podcast is about : 

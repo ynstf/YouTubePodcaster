@@ -1,0 +1,570 @@
+[
+    {
+        "label": "librosa",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "librosa",
+        "description": "librosa",
+        "detail": "librosa",
+        "documentation": {}
+    },
+    {
+        "label": "AudioFileClip",
+        "importPath": "moviepy.editor",
+        "description": "moviepy.editor",
+        "isExtraImport": true,
+        "detail": "moviepy.editor",
+        "documentation": {}
+    },
+    {
+        "label": "CompositeAudioClip",
+        "importPath": "moviepy.editor",
+        "description": "moviepy.editor",
+        "isExtraImport": true,
+        "detail": "moviepy.editor",
+        "documentation": {}
+    },
+    {
+        "label": "afx",
+        "importPath": "moviepy.editor",
+        "description": "moviepy.editor",
+        "isExtraImport": true,
+        "detail": "moviepy.editor",
+        "documentation": {}
+    },
+    {
+        "label": "soundfile",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "soundfile",
+        "description": "soundfile",
+        "detail": "soundfile",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "urllib3",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "urllib3",
+        "description": "urllib3",
+        "detail": "urllib3",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
+        "label": "ID3",
+        "importPath": "mutagen.id3",
+        "description": "mutagen.id3",
+        "isExtraImport": true,
+        "detail": "mutagen.id3",
+        "documentation": {}
+    },
+    {
+        "label": "TIT2",
+        "importPath": "mutagen.id3",
+        "description": "mutagen.id3",
+        "isExtraImport": true,
+        "detail": "mutagen.id3",
+        "documentation": {}
+    },
+    {
+        "label": "TPE1",
+        "importPath": "mutagen.id3",
+        "description": "mutagen.id3",
+        "isExtraImport": true,
+        "detail": "mutagen.id3",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "praw",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "praw",
+        "description": "praw",
+        "detail": "praw",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "create_content",
+        "importPath": "REDDIT.GENERATE_REDDIT",
+        "description": "REDDIT.GENERATE_REDDIT",
+        "isExtraImport": true,
+        "detail": "REDDIT.GENERATE_REDDIT",
+        "documentation": {}
+    },
+    {
+        "label": "create_conversation",
+        "importPath": "LLM.GENERATE_PODCUST",
+        "description": "LLM.GENERATE_PODCUST",
+        "isExtraImport": true,
+        "detail": "LLM.GENERATE_PODCUST",
+        "documentation": {}
+    },
+    {
+        "label": "create_audios",
+        "importPath": "AUDIO.GENERATE_AUDIO",
+        "description": "AUDIO.GENERATE_AUDIO",
+        "isExtraImport": true,
+        "detail": "AUDIO.GENERATE_AUDIO",
+        "documentation": {}
+    },
+    {
+        "label": "create_one_audio",
+        "importPath": "AUDIO.GENERATE_AUDIO",
+        "description": "AUDIO.GENERATE_AUDIO",
+        "isExtraImport": true,
+        "detail": "AUDIO.GENERATE_AUDIO",
+        "documentation": {}
+    },
+    {
+        "label": "mix_podcust_audio",
+        "importPath": "AUDIO.GENERATE_AUDIO",
+        "description": "AUDIO.GENERATE_AUDIO",
+        "isExtraImport": true,
+        "detail": "AUDIO.GENERATE_AUDIO",
+        "documentation": {}
+    },
+    {
+        "label": "conversation_list",
+        "importPath": "main",
+        "description": "main",
+        "isExtraImport": true,
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "MUSIC_API_URL",
+        "importPath": "main",
+        "description": "main",
+        "isExtraImport": true,
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "path_music",
+        "importPath": "main",
+        "description": "main",
+        "isExtraImport": true,
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "generate_music",
+        "importPath": "MUSIC.GENERATE_MUSIC",
+        "description": "MUSIC.GENERATE_MUSIC",
+        "isExtraImport": true,
+        "detail": "MUSIC.GENERATE_MUSIC",
+        "documentation": {}
+    },
+    {
+        "label": "fix_music",
+        "importPath": "MUSIC.FIX_MUSIC",
+        "description": "MUSIC.FIX_MUSIC",
+        "isExtraImport": true,
+        "detail": "MUSIC.FIX_MUSIC",
+        "documentation": {}
+    },
+    {
+        "label": "generate_audio",
+        "kind": 2,
+        "importPath": "AUDIO.GENERATE_AUDIO",
+        "description": "AUDIO.GENERATE_AUDIO",
+        "peekOfCode": "def generate_audio(text, voice_id, proxy):\n    url = f\"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}?allow_unauthenticated=1\"\n    headers = {\n        \"Accept\": \"audio/mpeg\",\n        \"Content-Type\": \"application/json\",\n        \"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0\",  # Mimic Firefox\n        \"Accept-Language\": \"en-US,en;q=0.5\",\n        \"Accept-Encoding\": \"gzip, deflate, br\",\n        \"Connection\": \"keep-alive\",\n        \"Referer\": \"https://elevenlabs.io/\",",
+        "detail": "AUDIO.GENERATE_AUDIO",
+        "documentation": {}
+    },
+    {
+        "label": "make_shorter",
+        "kind": 2,
+        "importPath": "AUDIO.GENERATE_AUDIO",
+        "description": "AUDIO.GENERATE_AUDIO",
+        "peekOfCode": "def make_shorter(tst):\n    if len(tst)>500:\n        tst = tst.replace(\"<speak>\",\"\")\n        tst = tst.replace(\"</speak>\",\"\")\n        print(\"remove by <speak> and </speak> \")\n    if len(tst)>500:\n        tst = tst.replace(\"<prosody rate='slow'>\",\"\")\n        print(\"remove by <prosody rate='slow'> \")\n    if len(tst)>500:\n        tst = tst.replace(\"</prosody>\",\"\")",
+        "detail": "AUDIO.GENERATE_AUDIO",
+        "documentation": {}
+    },
+    {
+        "label": "save_files",
+        "kind": 2,
+        "importPath": "AUDIO.GENERATE_AUDIO",
+        "description": "AUDIO.GENERATE_AUDIO",
+        "peekOfCode": "def save_files(audio_segments):\n    audio_paths = []\n    for i, segment in enumerate(audio_segments):\n        with open(f\"podcast/segment_{i}.mp3\", \"wb\") as f:\n            f.write(segment)\n        print(f\"Saved pudcast/segment_{i}.mp3\")\n        audio_paths.append(f\"podcast/segment_{i}.mp3\")\n    return audio_paths\n# Create all audios\ndef create_audios(proxies,VOICE_ID_MAN,VOICE_ID_WOMAN):",
+        "detail": "AUDIO.GENERATE_AUDIO",
+        "documentation": {}
+    },
+    {
+        "label": "create_audios",
+        "kind": 2,
+        "importPath": "AUDIO.GENERATE_AUDIO",
+        "description": "AUDIO.GENERATE_AUDIO",
+        "peekOfCode": "def create_audios(proxies,VOICE_ID_MAN,VOICE_ID_WOMAN):\n    # Generate audio for each chunk and combine\n    audio_segments = []\n    for i, turn in enumerate(conversation_list):\n        role = turn[\"role\"]\n        text = turn[\"text\"]\n        text = make_shorter(text)\n        #voice_id = VOICE_ID_MAN if role == \"Man\" else VOICE_ID_WOMAN\n        voice_id = VOICE_ID_MAN if i % 2 == 0 else VOICE_ID_WOMAN\n        print(f\"Generating audio for {role} : {voice_id} (turn {i + 1})...\")",
+        "detail": "AUDIO.GENERATE_AUDIO",
+        "documentation": {}
+    },
+    {
+        "label": "create_one_audio",
+        "kind": 2,
+        "importPath": "AUDIO.GENERATE_AUDIO",
+        "description": "AUDIO.GENERATE_AUDIO",
+        "peekOfCode": "def create_one_audio(audios_list,OUTPUT_FILE):\n    # Load and combine all audio files\n    combined = []\n    for file in audios_list:\n        y, sr = librosa.load(file)\n        combined.append(y)\n    # Concatenate all audio segments\n    final_audio = np.concatenate(combined)\n    # Save the combined audio\n    sf.write(f'podcast/{OUTPUT_FILE}', final_audio, sr)",
+        "detail": "AUDIO.GENERATE_AUDIO",
+        "documentation": {}
+    },
+    {
+        "label": "mix_podcust_audio",
+        "kind": 2,
+        "importPath": "AUDIO.GENERATE_AUDIO",
+        "description": "AUDIO.GENERATE_AUDIO",
+        "peekOfCode": "def mix_podcust_audio(path_podcust_audio,path_fixed):\n    # Load the podcast audio (MP3)\n    podcast = AudioFileClip(path_podcust_audio)\n    print(\"Podcast duration:\", podcast.duration)\n    # Load the background music (WAV or MP3)\n    music = AudioFileClip(path_fixed)\n    print(\"Music duration:\", music.duration)\n    # Adjust the volume of the background music (optional)\n    music = music.volumex(0.4)  # Reduce volume by 50%\n    # Ensure the music is the same length as the podcast",
+        "detail": "AUDIO.GENERATE_AUDIO",
+        "documentation": {}
+    },
+    {
+        "label": "send_prompt",
+        "kind": 2,
+        "importPath": "LLM.GENERATE_PODCUST",
+        "description": "LLM.GENERATE_PODCUST",
+        "peekOfCode": "def send_prompt(prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL):\n    headers = {\n        \"Authorization\": f\"Bearer {OPENROUTER_API_KEY}\",\n        \"Content-Type\": \"application/json\"\n    }\n    final_prompt = prompt + text\n    data = {\n        \"model\": MODEL,  # Use the free model\n        \"messages\": [\n            {\"role\": \"user\", \"content\": final_prompt}",
+        "detail": "LLM.GENERATE_PODCUST",
+        "documentation": {}
+    },
+    {
+        "label": "split_conversation",
+        "kind": 2,
+        "importPath": "LLM.GENERATE_PODCUST",
+        "description": "LLM.GENERATE_PODCUST",
+        "peekOfCode": "def split_conversation(conversation):\n    turns = conversation.split(\"\\n\")\n    roles = [\"Man\", \"Woman\"]\n    conversation_list = []\n    role_index = 0\n    for turn in turns:\n        if turn.strip():  # Skip empty lines\n            role = roles[role_index % len(roles)]\n            conversation_list.append({\"role\": role, \"text\": turn.strip()})\n            role_index += 1",
+        "detail": "LLM.GENERATE_PODCUST",
+        "documentation": {}
+    },
+    {
+        "label": "save_conversation",
+        "kind": 2,
+        "importPath": "LLM.GENERATE_PODCUST",
+        "description": "LLM.GENERATE_PODCUST",
+        "peekOfCode": "def save_conversation(conversation,SAVE_CONVERSATION_FILE):\n    with open(SAVE_CONVERSATION_FILE, \"w\", encoding =\"UTF-8\") as file_to_save:\n        file_to_save.write(conversation)\ndef create_conversation(prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL):\n    # Generate the conversation\n    print(\"Generating conversation...\")\n    conversation = send_prompt(prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\n    SAVE_CONVERSATION_FILE = \"conversation.txt\"\n    save_conversation(conversation,SAVE_CONVERSATION_FILE)\n    if not conversation:",
+        "detail": "LLM.GENERATE_PODCUST",
+        "documentation": {}
+    },
+    {
+        "label": "create_conversation",
+        "kind": 2,
+        "importPath": "LLM.GENERATE_PODCUST",
+        "description": "LLM.GENERATE_PODCUST",
+        "peekOfCode": "def create_conversation(prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL):\n    # Generate the conversation\n    print(\"Generating conversation...\")\n    conversation = send_prompt(prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\n    SAVE_CONVERSATION_FILE = \"conversation.txt\"\n    save_conversation(conversation,SAVE_CONVERSATION_FILE)\n    if not conversation:\n        print(\"Failed to generate conversation.\")\n    # Split the conversation into a dictionary list\n    conversation_list = split_conversation(conversation)",
+        "detail": "LLM.GENERATE_PODCUST",
+        "documentation": {}
+    },
+    {
+        "label": "fix_music",
+        "kind": 2,
+        "importPath": "MUSIC.FIX_MUSIC",
+        "description": "MUSIC.FIX_MUSIC",
+        "peekOfCode": "def fix_music(path_music):\n    # Input and output file paths\n    input_file = \"podcust/background.mp3\"\n    output_file = \"podcust/background_fixed.mp3\"\n    # Step 1: Convert the audio file using FFmpeg\n    ffmpeg_command = [\n        \"ffmpeg\",\n        \"-i\", input_file,          # Input file\n        \"-c:a\", \"libmp3lame\",      # Audio codec (MP3)\n        \"-q:a\", \"2\",               # Audio quality",
+        "detail": "MUSIC.FIX_MUSIC",
+        "documentation": {}
+    },
+    {
+        "label": "generate_music_prompt",
+        "kind": 2,
+        "importPath": "MUSIC.GENERATE_MUSIC",
+        "description": "MUSIC.GENERATE_MUSIC",
+        "peekOfCode": "def generate_music_prompt(prompt,podcust):\n    prompt_total = prompt + podcust\n    return send_prompt(prompt_total)\ndef generate_music(prompt,podcust,HUGGING_FACE_TOKEN,API_URL):\n    # Your Hugging Face API token\n    headers = {\n        \"Authorization\": f\"Bearer {HUGGING_FACE_TOKEN}\",\n        \"Content-Type\": \"application/json\"\n    }\n    # Payload with the prompt",
+        "detail": "MUSIC.GENERATE_MUSIC",
+        "documentation": {}
+    },
+    {
+        "label": "generate_music",
+        "kind": 2,
+        "importPath": "MUSIC.GENERATE_MUSIC",
+        "description": "MUSIC.GENERATE_MUSIC",
+        "peekOfCode": "def generate_music(prompt,podcust,HUGGING_FACE_TOKEN,API_URL):\n    # Your Hugging Face API token\n    headers = {\n        \"Authorization\": f\"Bearer {HUGGING_FACE_TOKEN}\",\n        \"Content-Type\": \"application/json\"\n    }\n    # Payload with the prompt\n    payload = {\n        \"inputs\": prompt\n    }",
+        "detail": "MUSIC.GENERATE_MUSIC",
+        "documentation": {}
+    },
+    {
+        "label": "load_done_subjects",
+        "kind": 2,
+        "importPath": "REDDIT.GENERATE_REDDIT",
+        "description": "REDDIT.GENERATE_REDDIT",
+        "peekOfCode": "def load_done_subjects(DONE_SUBJECTS_FILE):\n    try:\n        with open(DONE_SUBJECTS_FILE, \"r\") as file:\n            return set(file.read().splitlines())\n    except FileNotFoundError:\n        return set()\n# Function to save a new subject\ndef save_done_subject(post_id,DONE_SUBJECTS_FILE):\n    with open(DONE_SUBJECTS_FILE, \"a\") as file:\n        file.write(post_id + \"\\n\")",
+        "detail": "REDDIT.GENERATE_REDDIT",
+        "documentation": {}
+    },
+    {
+        "label": "save_done_subject",
+        "kind": 2,
+        "importPath": "REDDIT.GENERATE_REDDIT",
+        "description": "REDDIT.GENERATE_REDDIT",
+        "peekOfCode": "def save_done_subject(post_id,DONE_SUBJECTS_FILE):\n    with open(DONE_SUBJECTS_FILE, \"a\") as file:\n        file.write(post_id + \"\\n\")\n# Function to save a new subject\ndef save_content(text,SAVE_CONTENT_FILE):\n    with open(SAVE_CONTENT_FILE, \"w\") as file_to_save:\n        file_to_save.write(text)\n# Create the content\ndef create_content(CLIENT_ID,CLIENT_SECRET,USER_AGENT):\n    # Initialize PRAW",
+        "detail": "REDDIT.GENERATE_REDDIT",
+        "documentation": {}
+    },
+    {
+        "label": "save_content",
+        "kind": 2,
+        "importPath": "REDDIT.GENERATE_REDDIT",
+        "description": "REDDIT.GENERATE_REDDIT",
+        "peekOfCode": "def save_content(text,SAVE_CONTENT_FILE):\n    with open(SAVE_CONTENT_FILE, \"w\") as file_to_save:\n        file_to_save.write(text)\n# Create the content\ndef create_content(CLIENT_ID,CLIENT_SECRET,USER_AGENT):\n    # Initialize PRAW\n    reddit = praw.Reddit(\n        client_id=CLIENT_ID,\n        client_secret=CLIENT_SECRET,\n        user_agent=USER_AGENT",
+        "detail": "REDDIT.GENERATE_REDDIT",
+        "documentation": {}
+    },
+    {
+        "label": "create_content",
+        "kind": 2,
+        "importPath": "REDDIT.GENERATE_REDDIT",
+        "description": "REDDIT.GENERATE_REDDIT",
+        "peekOfCode": "def create_content(CLIENT_ID,CLIENT_SECRET,USER_AGENT):\n    # Initialize PRAW\n    reddit = praw.Reddit(\n        client_id=CLIENT_ID,\n        client_secret=CLIENT_SECRET,\n        user_agent=USER_AGENT\n    )\n    # File to store previously fetched subjects\n    DONE_SUBJECTS_FILE = \"done_subjects.txt\"\n    SAVE_CONTENT_FILE = \"content.txt\"",
+        "detail": "REDDIT.GENERATE_REDDIT",
+        "documentation": {}
+    },
+    {
+        "label": "CLIENT_ID",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "CLIENT_ID = os.getenv(\"CLIENT_ID\")\nCLIENT_SECRET = os.getenv(\"CLIENT_SECRET\")\nUSER_AGENT = os.getenv(\"USER_AGENT\")\n# Example usage\nprint(f\"Client ID: {CLIENT_ID}\")\nprint(f\"Client Secret: {CLIENT_SECRET}\")\nprint(f\"User Agent: {USER_AGENT}\")\n# Create text from reddit\ntext = create_content(CLIENT_ID,CLIENT_SECRET,USER_AGENT)\nprint(\"text from reddit created\")",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "CLIENT_SECRET",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "CLIENT_SECRET = os.getenv(\"CLIENT_SECRET\")\nUSER_AGENT = os.getenv(\"USER_AGENT\")\n# Example usage\nprint(f\"Client ID: {CLIENT_ID}\")\nprint(f\"Client Secret: {CLIENT_SECRET}\")\nprint(f\"User Agent: {USER_AGENT}\")\n# Create text from reddit\ntext = create_content(CLIENT_ID,CLIENT_SECRET,USER_AGENT)\nprint(\"text from reddit created\")\n# Access the variables",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "USER_AGENT",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "USER_AGENT = os.getenv(\"USER_AGENT\")\n# Example usage\nprint(f\"Client ID: {CLIENT_ID}\")\nprint(f\"Client Secret: {CLIENT_SECRET}\")\nprint(f\"User Agent: {USER_AGENT}\")\n# Create text from reddit\ntext = create_content(CLIENT_ID,CLIENT_SECRET,USER_AGENT)\nprint(\"text from reddit created\")\n# Access the variables\nOPENROUTER_API_KEY = os.getenv(\"OPENROUTER_API_KEY\")",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "text",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "text = create_content(CLIENT_ID,CLIENT_SECRET,USER_AGENT)\nprint(\"text from reddit created\")\n# Access the variables\nOPENROUTER_API_KEY = os.getenv(\"OPENROUTER_API_KEY\")\nOPENROUTER_API_URL = os.getenv(\"OPENROUTER_API_URL\")\nMODEL = os.getenv(\"MODEL\")\nconversation_prompt = open(\"PROMPTS/conversation_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\n# Create the conversation\nconversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"conversation created by llm\")",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "OPENROUTER_API_KEY",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "OPENROUTER_API_KEY = os.getenv(\"OPENROUTER_API_KEY\")\nOPENROUTER_API_URL = os.getenv(\"OPENROUTER_API_URL\")\nMODEL = os.getenv(\"MODEL\")\nconversation_prompt = open(\"PROMPTS/conversation_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\n# Create the conversation\nconversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"conversation created by llm\")\n# Access the variables\nVOICE_ID_MAN = os.getenv(\"VOICE_ID_MAN\")\nVOICE_ID_WOMAN = os.getenv(\"VOICE_ID_WOMAN\")",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "OPENROUTER_API_URL",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "OPENROUTER_API_URL = os.getenv(\"OPENROUTER_API_URL\")\nMODEL = os.getenv(\"MODEL\")\nconversation_prompt = open(\"PROMPTS/conversation_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\n# Create the conversation\nconversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"conversation created by llm\")\n# Access the variables\nVOICE_ID_MAN = os.getenv(\"VOICE_ID_MAN\")\nVOICE_ID_WOMAN = os.getenv(\"VOICE_ID_WOMAN\")\nAUDIO_OUTPUT_FILE = os.getenv(\"AUDIO_OUTPUT_FILE\")",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "MODEL",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "MODEL = os.getenv(\"MODEL\")\nconversation_prompt = open(\"PROMPTS/conversation_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\n# Create the conversation\nconversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"conversation created by llm\")\n# Access the variables\nVOICE_ID_MAN = os.getenv(\"VOICE_ID_MAN\")\nVOICE_ID_WOMAN = os.getenv(\"VOICE_ID_WOMAN\")\nAUDIO_OUTPUT_FILE = os.getenv(\"AUDIO_OUTPUT_FILE\")\n# Load the proxies from the JSON file",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "conversation_prompt",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "conversation_prompt = open(\"PROMPTS/conversation_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\n# Create the conversation\nconversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"conversation created by llm\")\n# Access the variables\nVOICE_ID_MAN = os.getenv(\"VOICE_ID_MAN\")\nVOICE_ID_WOMAN = os.getenv(\"VOICE_ID_WOMAN\")\nAUDIO_OUTPUT_FILE = os.getenv(\"AUDIO_OUTPUT_FILE\")\n# Load the proxies from the JSON file\nwith open(\"proxies.json\", \"r\") as file:",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "conversation_list",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "conversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"conversation created by llm\")\n# Access the variables\nVOICE_ID_MAN = os.getenv(\"VOICE_ID_MAN\")\nVOICE_ID_WOMAN = os.getenv(\"VOICE_ID_WOMAN\")\nAUDIO_OUTPUT_FILE = os.getenv(\"AUDIO_OUTPUT_FILE\")\n# Load the proxies from the JSON file\nwith open(\"proxies.json\", \"r\") as file:\n    proxies = json.load(file)\n# create podcust audio",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "VOICE_ID_MAN",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "VOICE_ID_MAN = os.getenv(\"VOICE_ID_MAN\")\nVOICE_ID_WOMAN = os.getenv(\"VOICE_ID_WOMAN\")\nAUDIO_OUTPUT_FILE = os.getenv(\"AUDIO_OUTPUT_FILE\")\n# Load the proxies from the JSON file\nwith open(\"proxies.json\", \"r\") as file:\n    proxies = json.load(file)\n# create podcust audio\naudios_list = create_audios(proxies,VOICE_ID_MAN,VOICE_ID_WOMAN)\npath_podcust_audio = create_one_audio(audios_list,AUDIO_OUTPUT_FILE)\n# create music background",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "VOICE_ID_WOMAN",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "VOICE_ID_WOMAN = os.getenv(\"VOICE_ID_WOMAN\")\nAUDIO_OUTPUT_FILE = os.getenv(\"AUDIO_OUTPUT_FILE\")\n# Load the proxies from the JSON file\nwith open(\"proxies.json\", \"r\") as file:\n    proxies = json.load(file)\n# create podcust audio\naudios_list = create_audios(proxies,VOICE_ID_MAN,VOICE_ID_WOMAN)\npath_podcust_audio = create_one_audio(audios_list,AUDIO_OUTPUT_FILE)\n# create music background\nHUGGING_FACE_TOKEN = os.getenv(\"HUGGING_FACE_TOKEN\")",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "AUDIO_OUTPUT_FILE",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "AUDIO_OUTPUT_FILE = os.getenv(\"AUDIO_OUTPUT_FILE\")\n# Load the proxies from the JSON file\nwith open(\"proxies.json\", \"r\") as file:\n    proxies = json.load(file)\n# create podcust audio\naudios_list = create_audios(proxies,VOICE_ID_MAN,VOICE_ID_WOMAN)\npath_podcust_audio = create_one_audio(audios_list,AUDIO_OUTPUT_FILE)\n# create music background\nHUGGING_FACE_TOKEN = os.getenv(\"HUGGING_FACE_TOKEN\")\nMUSIC_API_URL = os.getenv(\"MUSIC_API_URL\")",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "audios_list",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "audios_list = create_audios(proxies,VOICE_ID_MAN,VOICE_ID_WOMAN)\npath_podcust_audio = create_one_audio(audios_list,AUDIO_OUTPUT_FILE)\n# create music background\nHUGGING_FACE_TOKEN = os.getenv(\"HUGGING_FACE_TOKEN\")\nMUSIC_API_URL = os.getenv(\"MUSIC_API_URL\")\nmusic_prompt = open(\"PROMPTS/music_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nwith open(\"conversation.txt\", \"r\") as file:\n    conversationTXT = file.read()\npath_music = generate_music(music_prompt,\n                conversationTXT,",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "path_podcust_audio",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "path_podcust_audio = create_one_audio(audios_list,AUDIO_OUTPUT_FILE)\n# create music background\nHUGGING_FACE_TOKEN = os.getenv(\"HUGGING_FACE_TOKEN\")\nMUSIC_API_URL = os.getenv(\"MUSIC_API_URL\")\nmusic_prompt = open(\"PROMPTS/music_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nwith open(\"conversation.txt\", \"r\") as file:\n    conversationTXT = file.read()\npath_music = generate_music(music_prompt,\n                conversationTXT,\n                HUGGING_FACE_TOKEN,",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "HUGGING_FACE_TOKEN",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "HUGGING_FACE_TOKEN = os.getenv(\"HUGGING_FACE_TOKEN\")\nMUSIC_API_URL = os.getenv(\"MUSIC_API_URL\")\nmusic_prompt = open(\"PROMPTS/music_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nwith open(\"conversation.txt\", \"r\") as file:\n    conversationTXT = file.read()\npath_music = generate_music(music_prompt,\n                conversationTXT,\n                HUGGING_FACE_TOKEN,\n                MUSIC_API_URL)\n# fix music (adding metadata)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "MUSIC_API_URL",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "MUSIC_API_URL = os.getenv(\"MUSIC_API_URL\")\nmusic_prompt = open(\"PROMPTS/music_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nwith open(\"conversation.txt\", \"r\") as file:\n    conversationTXT = file.read()\npath_music = generate_music(music_prompt,\n                conversationTXT,\n                HUGGING_FACE_TOKEN,\n                MUSIC_API_URL)\n# fix music (adding metadata)\npath_fixed = fix_music(path_music)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "music_prompt",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "music_prompt = open(\"PROMPTS/music_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nwith open(\"conversation.txt\", \"r\") as file:\n    conversationTXT = file.read()\npath_music = generate_music(music_prompt,\n                conversationTXT,\n                HUGGING_FACE_TOKEN,\n                MUSIC_API_URL)\n# fix music (adding metadata)\npath_fixed = fix_music(path_music)\n# mix music with audio ",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "path_music",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "path_music = generate_music(music_prompt,\n                conversationTXT,\n                HUGGING_FACE_TOKEN,\n                MUSIC_API_URL)\n# fix music (adding metadata)\npath_fixed = fix_music(path_music)\n# mix music with audio \npath_mixed_audio = mix_podcust_audio(path_podcust_audio,path_fixed)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "path_fixed",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "path_fixed = fix_music(path_music)\n# mix music with audio \npath_mixed_audio = mix_podcust_audio(path_podcust_audio,path_fixed)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "path_mixed_audio",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "path_mixed_audio = mix_podcust_audio(path_podcust_audio,path_fixed)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "proxies",
+        "kind": 5,
+        "importPath": "save_proxies",
+        "description": "save_proxies",
+        "peekOfCode": "proxies = [\n    {\"http\": \"http://102.223.186.246:8888\", \"https\": \"http://102.223.186.246:8888\"},\n    {\"http\": \"http://34.212.27.178:1080\", \"https\": \"http://34.212.27.178:1080\"},\n    {\"http\": \"http://134.209.23.180:8888\", \"https\": \"http://134.209.23.180:8888\"},\n    {\"http\": \"http://216.229.112.25:8080\", \"https\": \"http://216.229.112.25:8080\"},\n    {\"http\": \"http://222.252.194.204:8080\", \"https\": \"http://222.252.194.204:8080\"},\n    {\"http\": \"http://51.255.57.241:80\", \"https\": \"http://51.255.57.241:80\"},\n    {\"http\": \"http://72.10.160.174:8717\", \"https\": \"http://72.10.160.174:8717\"},\n    {\"http\": \"http://67.43.227.230:18389\", \"https\": \"http://67.43.227.230:18389\"},\n    {\"http\": \"http://72.10.160.92:23605\", \"https\": \"http://72.10.160.92:23605\"},",
+        "detail": "save_proxies",
+        "documentation": {}
+    }
+]

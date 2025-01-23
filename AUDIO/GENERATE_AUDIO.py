@@ -1,4 +1,5 @@
 import librosa
+from moviepy.editor import AudioFileClip, CompositeAudioClip, afx
 import soundfile as sf
 import numpy as np
 import requests
@@ -139,3 +140,35 @@ def create_one_audio(audios_list,OUTPUT_FILE):
 
     # Save the combined audio
     sf.write(f'podcast/{OUTPUT_FILE}', final_audio, sr)
+
+# mix audio
+def mix_podcust_audio(path_podcust_audio,path_fixed):
+    
+    # Load the podcast audio (MP3)
+    podcast = AudioFileClip(path_podcust_audio)
+    print("Podcast duration:", podcast.duration)
+
+    # Load the background music (WAV or MP3)
+    music = AudioFileClip(path_fixed)
+    print("Music duration:", music.duration)
+
+    # Adjust the volume of the background music (optional)
+    music = music.volumex(0.4)  # Reduce volume by 50%
+
+    # Ensure the music is the same length as the podcast
+    if music.duration < podcast.duration:
+        # Loop the music to match the podcast duration
+        music = afx.audio_loop(music, duration=podcast.duration)
+    else:
+        # Trim the music to match the podcast duration
+        music = music.subclip(0, podcast.duration)
+
+    # Mix the podcast and music
+    mixed_audio = CompositeAudioClip([podcast, music])
+
+    # Export the mixed audio to a new file
+    mixed_audio.write_audiofile("mixed_podcast.mp3", fps=44100)
+
+    print("Mixed audio saved as 'mixed_podcast.mp3'")
+
+    return "mixed_podcast.mp3"
