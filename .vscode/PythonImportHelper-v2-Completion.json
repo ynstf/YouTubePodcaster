@@ -243,11 +243,43 @@
         "documentation": {}
     },
     {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
         "label": "create_content",
         "importPath": "REDDIT.GENERATE_REDDIT",
         "description": "REDDIT.GENERATE_REDDIT",
         "isExtraImport": true,
         "detail": "REDDIT.GENERATE_REDDIT",
+        "documentation": {}
+    },
+    {
+        "label": "create_content",
+        "importPath": "REDDIT.GENERATE_REDDIT",
+        "description": "REDDIT.GENERATE_REDDIT",
+        "isExtraImport": true,
+        "detail": "REDDIT.GENERATE_REDDIT",
+        "documentation": {}
+    },
+    {
+        "label": "create_conversation",
+        "importPath": "LLM.GENERATE_PODCUST",
+        "description": "LLM.GENERATE_PODCUST",
+        "isExtraImport": true,
+        "detail": "LLM.GENERATE_PODCUST",
+        "documentation": {}
+    },
+    {
+        "label": "send_prompt",
+        "importPath": "LLM.GENERATE_PODCUST",
+        "description": "LLM.GENERATE_PODCUST",
+        "isExtraImport": true,
+        "detail": "LLM.GENERATE_PODCUST",
         "documentation": {}
     },
     {
@@ -291,11 +323,51 @@
         "documentation": {}
     },
     {
+        "label": "create_audios",
+        "importPath": "AUDIO.GENERATE_AUDIO",
+        "description": "AUDIO.GENERATE_AUDIO",
+        "isExtraImport": true,
+        "detail": "AUDIO.GENERATE_AUDIO",
+        "documentation": {}
+    },
+    {
+        "label": "create_one_audio",
+        "importPath": "AUDIO.GENERATE_AUDIO",
+        "description": "AUDIO.GENERATE_AUDIO",
+        "isExtraImport": true,
+        "detail": "AUDIO.GENERATE_AUDIO",
+        "documentation": {}
+    },
+    {
+        "label": "mix_podcust_audio",
+        "importPath": "AUDIO.GENERATE_AUDIO",
+        "description": "AUDIO.GENERATE_AUDIO",
+        "isExtraImport": true,
+        "detail": "AUDIO.GENERATE_AUDIO",
+        "documentation": {}
+    },
+    {
         "label": "generate_music",
         "importPath": "MUSIC.GENERATE_MUSIC",
         "description": "MUSIC.GENERATE_MUSIC",
         "isExtraImport": true,
         "detail": "MUSIC.GENERATE_MUSIC",
+        "documentation": {}
+    },
+    {
+        "label": "generate_music",
+        "importPath": "MUSIC.GENERATE_MUSIC",
+        "description": "MUSIC.GENERATE_MUSIC",
+        "isExtraImport": true,
+        "detail": "MUSIC.GENERATE_MUSIC",
+        "documentation": {}
+    },
+    {
+        "label": "fix_music",
+        "importPath": "MUSIC.FIX_MUSIC",
+        "description": "MUSIC.FIX_MUSIC",
+        "isExtraImport": true,
+        "detail": "MUSIC.FIX_MUSIC",
         "documentation": {}
     },
     {
@@ -323,11 +395,59 @@
         "documentation": {}
     },
     {
+        "label": "create_images_prompts",
+        "importPath": "IMAGE.GENERATE_IMAGES",
+        "description": "IMAGE.GENERATE_IMAGES",
+        "isExtraImport": true,
+        "detail": "IMAGE.GENERATE_IMAGES",
+        "documentation": {}
+    },
+    {
+        "label": "create_images",
+        "importPath": "IMAGE.GENERATE_IMAGES",
+        "description": "IMAGE.GENERATE_IMAGES",
+        "isExtraImport": true,
+        "detail": "IMAGE.GENERATE_IMAGES",
+        "documentation": {}
+    },
+    {
         "label": "generate_video",
         "importPath": "VIDEO.GENERATE_VIDEO",
         "description": "VIDEO.GENERATE_VIDEO",
         "isExtraImport": true,
         "detail": "VIDEO.GENERATE_VIDEO",
+        "documentation": {}
+    },
+    {
+        "label": "generate_video",
+        "importPath": "VIDEO.GENERATE_VIDEO",
+        "description": "VIDEO.GENERATE_VIDEO",
+        "isExtraImport": true,
+        "detail": "VIDEO.GENERATE_VIDEO",
+        "documentation": {}
+    },
+    {
+        "label": "share_video",
+        "importPath": "UPLOAD.SHARE_VIDEO",
+        "description": "UPLOAD.SHARE_VIDEO",
+        "isExtraImport": true,
+        "detail": "UPLOAD.SHARE_VIDEO",
+        "documentation": {}
+    },
+    {
+        "label": "split_infos",
+        "importPath": "UPLOAD.SHARE_VIDEO",
+        "description": "UPLOAD.SHARE_VIDEO",
+        "isExtraImport": true,
+        "detail": "UPLOAD.SHARE_VIDEO",
+        "documentation": {}
+    },
+    {
+        "label": "get_authenticated_service",
+        "importPath": "UPLOAD.SHARE_VIDEO",
+        "description": "UPLOAD.SHARE_VIDEO",
+        "isExtraImport": true,
+        "detail": "UPLOAD.SHARE_VIDEO",
         "documentation": {}
     },
     {
@@ -586,6 +706,312 @@
         "description": "VIDEO.GENERATE_VIDEO",
         "peekOfCode": "def generate_video(audio_path,image_paths):\n    # Paths\n    #audio_path = \"pudcast/combined_output.mp3\"\n    #image_folder = \"images\"\n    output_video_path = \"podcast/podcast.mp4\"\n    # Get the list of image paths in order\n    # Load the audio and calculate its duration\n    audio_clip = AudioFileClip(audio_path)\n    audio_duration = audio_clip.duration  # Total duration of the audio in seconds\n    # Calculate the duration for each image",
         "detail": "VIDEO.GENERATE_VIDEO",
+        "documentation": {}
+    },
+    {
+        "label": "delete_files",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def delete_files(file_list):\n    \"\"\"\n    Deletes a list of files.\n    Args:\n        file_list (list): A list of file paths to delete.\n    \"\"\"\n    for file_path in file_list:\n        try:\n            # Check if the file exists\n            if os.path.exists(file_path):",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "generated_paths",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "generated_paths = []\n# Access the variables\nCLIENT_ID = os.getenv(\"CLIENT_ID\")\nCLIENT_SECRET = os.getenv(\"CLIENT_SECRET\")\nUSER_AGENT = os.getenv(\"USER_AGENT\")\n# Create text from reddit\nprint(\"creating text from reddit .....\")\ntext = create_content(CLIENT_ID,CLIENT_SECRET,USER_AGENT)\nprint(\"text from reddit created\")\ntime.sleep(5)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "CLIENT_ID",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "CLIENT_ID = os.getenv(\"CLIENT_ID\")\nCLIENT_SECRET = os.getenv(\"CLIENT_SECRET\")\nUSER_AGENT = os.getenv(\"USER_AGENT\")\n# Create text from reddit\nprint(\"creating text from reddit .....\")\ntext = create_content(CLIENT_ID,CLIENT_SECRET,USER_AGENT)\nprint(\"text from reddit created\")\ntime.sleep(5)\n# Access the variables\nOPENROUTER_API_KEY = os.getenv(\"OPENROUTER_API_KEY\")",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "CLIENT_SECRET",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "CLIENT_SECRET = os.getenv(\"CLIENT_SECRET\")\nUSER_AGENT = os.getenv(\"USER_AGENT\")\n# Create text from reddit\nprint(\"creating text from reddit .....\")\ntext = create_content(CLIENT_ID,CLIENT_SECRET,USER_AGENT)\nprint(\"text from reddit created\")\ntime.sleep(5)\n# Access the variables\nOPENROUTER_API_KEY = os.getenv(\"OPENROUTER_API_KEY\")\nOPENROUTER_API_URL = os.getenv(\"OPENROUTER_API_URL\")",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "USER_AGENT",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "USER_AGENT = os.getenv(\"USER_AGENT\")\n# Create text from reddit\nprint(\"creating text from reddit .....\")\ntext = create_content(CLIENT_ID,CLIENT_SECRET,USER_AGENT)\nprint(\"text from reddit created\")\ntime.sleep(5)\n# Access the variables\nOPENROUTER_API_KEY = os.getenv(\"OPENROUTER_API_KEY\")\nOPENROUTER_API_URL = os.getenv(\"OPENROUTER_API_URL\")\nMODEL = os.getenv(\"MODEL\")",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "text",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "text = create_content(CLIENT_ID,CLIENT_SECRET,USER_AGENT)\nprint(\"text from reddit created\")\ntime.sleep(5)\n# Access the variables\nOPENROUTER_API_KEY = os.getenv(\"OPENROUTER_API_KEY\")\nOPENROUTER_API_URL = os.getenv(\"OPENROUTER_API_URL\")\nMODEL = os.getenv(\"MODEL\")\nconversation_prompt = open(\"PROMPTS/conversation_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\ntime.sleep(5)\n# Create the conversation",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "OPENROUTER_API_KEY",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "OPENROUTER_API_KEY = os.getenv(\"OPENROUTER_API_KEY\")\nOPENROUTER_API_URL = os.getenv(\"OPENROUTER_API_URL\")\nMODEL = os.getenv(\"MODEL\")\nconversation_prompt = open(\"PROMPTS/conversation_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\ntime.sleep(5)\n# Create the conversation\nprint(\"creating conversation ....\")\nconversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"conversation created by llm\")\ntime.sleep(5)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "OPENROUTER_API_URL",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "OPENROUTER_API_URL = os.getenv(\"OPENROUTER_API_URL\")\nMODEL = os.getenv(\"MODEL\")\nconversation_prompt = open(\"PROMPTS/conversation_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\ntime.sleep(5)\n# Create the conversation\nprint(\"creating conversation ....\")\nconversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"conversation created by llm\")\ntime.sleep(5)\n# Access the variables",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "MODEL",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "MODEL = os.getenv(\"MODEL\")\nconversation_prompt = open(\"PROMPTS/conversation_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\ntime.sleep(5)\n# Create the conversation\nprint(\"creating conversation ....\")\nconversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"conversation created by llm\")\ntime.sleep(5)\n# Access the variables\nVOICE_ID_MAN = os.getenv(\"VOICE_ID_MAN\")",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "conversation_prompt",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "conversation_prompt = open(\"PROMPTS/conversation_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\ntime.sleep(5)\n# Create the conversation\nprint(\"creating conversation ....\")\nconversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"conversation created by llm\")\ntime.sleep(5)\n# Access the variables\nVOICE_ID_MAN = os.getenv(\"VOICE_ID_MAN\")\nVOICE_ID_WOMAN = os.getenv(\"VOICE_ID_WOMAN\")",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "conversation_list",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "conversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"conversation created by llm\")\ntime.sleep(5)\n# Access the variables\nVOICE_ID_MAN = os.getenv(\"VOICE_ID_MAN\")\nVOICE_ID_WOMAN = os.getenv(\"VOICE_ID_WOMAN\")\n# Load the proxies from the JSON file\nprint(\"Loading Proxies ....\")\nwith open(\"proxies.json\", \"r\") as file:\n    proxies = json.load(file)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "VOICE_ID_MAN",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "VOICE_ID_MAN = os.getenv(\"VOICE_ID_MAN\")\nVOICE_ID_WOMAN = os.getenv(\"VOICE_ID_WOMAN\")\n# Load the proxies from the JSON file\nprint(\"Loading Proxies ....\")\nwith open(\"proxies.json\", \"r\") as file:\n    proxies = json.load(file)\nprint(\"Proxies loaded\")\nprint(\"creating podcust audios, wait for finish ....\")\naudios_list = create_audios(conversation_list,proxies,VOICE_ID_MAN,VOICE_ID_WOMAN)\nprint(\"podcust audios created\")",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "VOICE_ID_WOMAN",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "VOICE_ID_WOMAN = os.getenv(\"VOICE_ID_WOMAN\")\n# Load the proxies from the JSON file\nprint(\"Loading Proxies ....\")\nwith open(\"proxies.json\", \"r\") as file:\n    proxies = json.load(file)\nprint(\"Proxies loaded\")\nprint(\"creating podcust audios, wait for finish ....\")\naudios_list = create_audios(conversation_list,proxies,VOICE_ID_MAN,VOICE_ID_WOMAN)\nprint(\"podcust audios created\")\ntime.sleep(5)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "audios_list",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "audios_list = create_audios(conversation_list,proxies,VOICE_ID_MAN,VOICE_ID_WOMAN)\nprint(\"podcust audios created\")\ntime.sleep(5)\n# create one audio\nAUDIO_OUTPUT_FILE = os.getenv(\"AUDIO_OUTPUT_FILE\")\nprint(\"generating one audio ...\")\npath_podcust_audio = create_one_audio(audios_list,AUDIO_OUTPUT_FILE)\nprint(\"one audio generated\")\ntime.sleep(5)\n# create music background",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "AUDIO_OUTPUT_FILE",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "AUDIO_OUTPUT_FILE = os.getenv(\"AUDIO_OUTPUT_FILE\")\nprint(\"generating one audio ...\")\npath_podcust_audio = create_one_audio(audios_list,AUDIO_OUTPUT_FILE)\nprint(\"one audio generated\")\ntime.sleep(5)\n# create music background\nHUGGING_FACE_TOKEN = os.getenv(\"HUGGING_FACE_TOKEN\")\nMUSIC_API_URL = os.getenv(\"MUSIC_API_URL\")\nllm_music_prompt = open(\"PROMPTS/music_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nconversation = open(\"conversation.txt\", \"r\", encoding =\"UTF-8\").read()",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "path_podcust_audio",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "path_podcust_audio = create_one_audio(audios_list,AUDIO_OUTPUT_FILE)\nprint(\"one audio generated\")\ntime.sleep(5)\n# create music background\nHUGGING_FACE_TOKEN = os.getenv(\"HUGGING_FACE_TOKEN\")\nMUSIC_API_URL = os.getenv(\"MUSIC_API_URL\")\nllm_music_prompt = open(\"PROMPTS/music_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nconversation = open(\"conversation.txt\", \"r\", encoding =\"UTF-8\").read()\nprint(\"generating prompt music ...\")\nmusic_prompt = send_prompt(llm_music_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "HUGGING_FACE_TOKEN",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "HUGGING_FACE_TOKEN = os.getenv(\"HUGGING_FACE_TOKEN\")\nMUSIC_API_URL = os.getenv(\"MUSIC_API_URL\")\nllm_music_prompt = open(\"PROMPTS/music_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nconversation = open(\"conversation.txt\", \"r\", encoding =\"UTF-8\").read()\nprint(\"generating prompt music ...\")\nmusic_prompt = send_prompt(llm_music_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"prompt music generated\")\ntime.sleep(1)\nprint(\"generating music ....\")\npath_music = generate_music(music_prompt,",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "MUSIC_API_URL",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "MUSIC_API_URL = os.getenv(\"MUSIC_API_URL\")\nllm_music_prompt = open(\"PROMPTS/music_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nconversation = open(\"conversation.txt\", \"r\", encoding =\"UTF-8\").read()\nprint(\"generating prompt music ...\")\nmusic_prompt = send_prompt(llm_music_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"prompt music generated\")\ntime.sleep(1)\nprint(\"generating music ....\")\npath_music = generate_music(music_prompt,\n                conversation,",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "llm_music_prompt",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "llm_music_prompt = open(\"PROMPTS/music_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nconversation = open(\"conversation.txt\", \"r\", encoding =\"UTF-8\").read()\nprint(\"generating prompt music ...\")\nmusic_prompt = send_prompt(llm_music_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"prompt music generated\")\ntime.sleep(1)\nprint(\"generating music ....\")\npath_music = generate_music(music_prompt,\n                conversation,\n                HUGGING_FACE_TOKEN,",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "conversation",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "conversation = open(\"conversation.txt\", \"r\", encoding =\"UTF-8\").read()\nprint(\"generating prompt music ...\")\nmusic_prompt = send_prompt(llm_music_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"prompt music generated\")\ntime.sleep(1)\nprint(\"generating music ....\")\npath_music = generate_music(music_prompt,\n                conversation,\n                HUGGING_FACE_TOKEN,\n                MUSIC_API_URL,",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "music_prompt",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "music_prompt = send_prompt(llm_music_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"prompt music generated\")\ntime.sleep(1)\nprint(\"generating music ....\")\npath_music = generate_music(music_prompt,\n                conversation,\n                HUGGING_FACE_TOKEN,\n                MUSIC_API_URL,\n                \"podcast/background.mp3\")\nprint(\"music generated\")",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "path_music",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "path_music = generate_music(music_prompt,\n                conversation,\n                HUGGING_FACE_TOKEN,\n                MUSIC_API_URL,\n                \"podcast/background.mp3\")\nprint(\"music generated\")\ntime.sleep(5)\n# fix music (adding metadata)\nprint(\"FIXING BACKGROUND ....\")\npath_fixed = fix_music()",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "path_fixed",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "path_fixed = fix_music()\nprint(\"music fixed\")\ntime.sleep(5)\n# mix music with audio \nprint(\"MIXING PODCUST ...\")\npath_mixed_audio = mix_podcust_audio(path_podcust_audio,path_fixed)\nprint(\"podcast mixed\")\ntime.sleep(5)\n# generate images\n# Get the IMAGE_API_URLS from the .env file",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "path_mixed_audio",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "path_mixed_audio = mix_podcust_audio(path_podcust_audio,path_fixed)\nprint(\"podcast mixed\")\ntime.sleep(5)\n# generate images\n# Get the IMAGE_API_URLS from the .env file\nimage_api_urls_str = os.getenv(\"IMAGE_API_URLS\")\nIMAGE_API_URLS = image_api_urls_str.split(\",\")\nllm_images_prompt = open(\"PROMPTS/images_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nprint('generating prompts of images....')\nimages_prompt = send_prompt(llm_images_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "image_api_urls_str",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "image_api_urls_str = os.getenv(\"IMAGE_API_URLS\")\nIMAGE_API_URLS = image_api_urls_str.split(\",\")\nllm_images_prompt = open(\"PROMPTS/images_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nprint('generating prompts of images....')\nimages_prompt = send_prompt(llm_images_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint('prompts generated')\nprint('generating prompts list ...')\nprompts_list = create_images_prompts(images_prompt)\nprint('prompts list generated')\ntime.sleep(1)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "IMAGE_API_URLS",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "IMAGE_API_URLS = image_api_urls_str.split(\",\")\nllm_images_prompt = open(\"PROMPTS/images_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nprint('generating prompts of images....')\nimages_prompt = send_prompt(llm_images_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint('prompts generated')\nprint('generating prompts list ...')\nprompts_list = create_images_prompts(images_prompt)\nprint('prompts list generated')\ntime.sleep(1)\nprint(\"wait, generating images ........\")",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "llm_images_prompt",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "llm_images_prompt = open(\"PROMPTS/images_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nprint('generating prompts of images....')\nimages_prompt = send_prompt(llm_images_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint('prompts generated')\nprint('generating prompts list ...')\nprompts_list = create_images_prompts(images_prompt)\nprint('prompts list generated')\ntime.sleep(1)\nprint(\"wait, generating images ........\")\npath_created_images = create_images(prompts_list,IMAGE_API_URLS,HUGGING_FACE_TOKEN)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "images_prompt",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "images_prompt = send_prompt(llm_images_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint('prompts generated')\nprint('generating prompts list ...')\nprompts_list = create_images_prompts(images_prompt)\nprint('prompts list generated')\ntime.sleep(1)\nprint(\"wait, generating images ........\")\npath_created_images = create_images(prompts_list,IMAGE_API_URLS,HUGGING_FACE_TOKEN)\nprint(\"images generated\")\ntime.sleep(3)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "prompts_list",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "prompts_list = create_images_prompts(images_prompt)\nprint('prompts list generated')\ntime.sleep(1)\nprint(\"wait, generating images ........\")\npath_created_images = create_images(prompts_list,IMAGE_API_URLS,HUGGING_FACE_TOKEN)\nprint(\"images generated\")\ntime.sleep(3)\n# generate vedios\nprint(\"generating the video .....\")\noutput_video_path = generate_video(path_mixed_audio, path_created_images)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "path_created_images",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "path_created_images = create_images(prompts_list,IMAGE_API_URLS,HUGGING_FACE_TOKEN)\nprint(\"images generated\")\ntime.sleep(3)\n# generate vedios\nprint(\"generating the video .....\")\noutput_video_path = generate_video(path_mixed_audio, path_created_images)\nprint(\"video generated\")\ntime.sleep(3)\ngenerated_paths.append(path_podcust_audio)#\ngenerated_paths.append(audios_list)#",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "output_video_path",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "output_video_path = generate_video(path_mixed_audio, path_created_images)\nprint(\"video generated\")\ntime.sleep(3)\ngenerated_paths.append(path_podcust_audio)#\ngenerated_paths.append(audios_list)#\ngenerated_paths.append(path_music)#\ngenerated_paths.append(path_fixed)#\ngenerated_paths.append(path_mixed_audio)#\ngenerated_paths.extend(path_created_images)#\ngenerated_paths.append(output_video_path)#",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "UPLOAD_TO_YOUTUBE",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "UPLOAD_TO_YOUTUBE = os.getenv(\"UPLOAD_TO_YOUTUBE\")\nTOKEN_FILE_YOUTUBE = os.getenv(\"TOKEN_FILE_YOUTUBE\")\nshare_prompt = open(\"PROMPTS/share_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nprint('sharing is :', UPLOAD_TO_YOUTUBE)\nif UPLOAD_TO_YOUTUBE == \"ON\":\n    print(\"generating infos ....\")\n    video_infos = send_prompt(share_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\n    title, description, tags = split_infos(video_infos)\n    print(\"title, description, tags generated\")\n    time.sleep(1)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "TOKEN_FILE_YOUTUBE",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "TOKEN_FILE_YOUTUBE = os.getenv(\"TOKEN_FILE_YOUTUBE\")\nshare_prompt = open(\"PROMPTS/share_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nprint('sharing is :', UPLOAD_TO_YOUTUBE)\nif UPLOAD_TO_YOUTUBE == \"ON\":\n    print(\"generating infos ....\")\n    video_infos = send_prompt(share_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\n    title, description, tags = split_infos(video_infos)\n    print(\"title, description, tags generated\")\n    time.sleep(1)\n    with open(\"video_infos.txt\", \"w\", encoding =\"UTF-8\") as file:",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "share_prompt",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "share_prompt = open(\"PROMPTS/share_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nprint('sharing is :', UPLOAD_TO_YOUTUBE)\nif UPLOAD_TO_YOUTUBE == \"ON\":\n    print(\"generating infos ....\")\n    video_infos = send_prompt(share_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\n    title, description, tags = split_infos(video_infos)\n    print(\"title, description, tags generated\")\n    time.sleep(1)\n    with open(\"video_infos.txt\", \"w\", encoding =\"UTF-8\") as file:\n        content = f\"\"\"",
+        "detail": "app",
         "documentation": {}
     },
     {

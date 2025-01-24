@@ -67,7 +67,6 @@ print("path_podcust_audio",path_podcust_audio)
 
 
 # create music background
-
 HUGGING_FACE_TOKEN = os.getenv("HUGGING_FACE_TOKEN")
 MUSIC_API_URL = os.getenv("MUSIC_API_URL")
 llm_music_prompt = open("PROMPTS/music_prompt.txt", "r", encoding ="UTF-8").read()
