@@ -170,6 +170,55 @@
         "documentation": {}
     },
     {
+        "label": "google.auth",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "google.auth",
+        "description": "google.auth",
+        "detail": "google.auth",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "google.auth.transport.requests",
+        "description": "google.auth.transport.requests",
+        "isExtraImport": true,
+        "detail": "google.auth.transport.requests",
+        "documentation": {}
+    },
+    {
+        "label": "Credentials",
+        "importPath": "google.oauth2.credentials",
+        "description": "google.oauth2.credentials",
+        "isExtraImport": true,
+        "detail": "google.oauth2.credentials",
+        "documentation": {}
+    },
+    {
+        "label": "InstalledAppFlow",
+        "importPath": "google_auth_oauthlib.flow",
+        "description": "google_auth_oauthlib.flow",
+        "isExtraImport": true,
+        "detail": "google_auth_oauthlib.flow",
+        "documentation": {}
+    },
+    {
+        "label": "build",
+        "importPath": "googleapiclient.discovery",
+        "description": "googleapiclient.discovery",
+        "isExtraImport": true,
+        "detail": "googleapiclient.discovery",
+        "documentation": {}
+    },
+    {
+        "label": "MediaFileUpload",
+        "importPath": "googleapiclient.http",
+        "description": "googleapiclient.http",
+        "isExtraImport": true,
+        "detail": "googleapiclient.http",
+        "documentation": {}
+    },
+    {
         "label": "fadein",
         "importPath": "moviepy.video.fx.all",
         "description": "moviepy.video.fx.all",
@@ -279,6 +328,30 @@
         "description": "VIDEO.GENERATE_VIDEO",
         "isExtraImport": true,
         "detail": "VIDEO.GENERATE_VIDEO",
+        "documentation": {}
+    },
+    {
+        "label": "share_video",
+        "importPath": "UPLOAD.SHARE_VIDEO",
+        "description": "UPLOAD.SHARE_VIDEO",
+        "isExtraImport": true,
+        "detail": "UPLOAD.SHARE_VIDEO",
+        "documentation": {}
+    },
+    {
+        "label": "split_infos",
+        "importPath": "UPLOAD.SHARE_VIDEO",
+        "description": "UPLOAD.SHARE_VIDEO",
+        "isExtraImport": true,
+        "detail": "UPLOAD.SHARE_VIDEO",
+        "documentation": {}
+    },
+    {
+        "label": "get_authenticated_service",
+        "importPath": "UPLOAD.SHARE_VIDEO",
+        "description": "UPLOAD.SHARE_VIDEO",
+        "isExtraImport": true,
+        "detail": "UPLOAD.SHARE_VIDEO",
         "documentation": {}
     },
     {
@@ -468,6 +541,42 @@
         "description": "REDDIT.GENERATE_REDDIT",
         "peekOfCode": "def create_content(CLIENT_ID,CLIENT_SECRET,USER_AGENT):\n    # Initialize PRAW\n    reddit = praw.Reddit(\n        client_id=CLIENT_ID,\n        client_secret=CLIENT_SECRET,\n        user_agent=USER_AGENT\n    )\n    # File to store previously fetched subjects\n    DONE_SUBJECTS_FILE = \"done_subjects.txt\"\n    SAVE_CONTENT_FILE = \"content.txt\"",
         "detail": "REDDIT.GENERATE_REDDIT",
+        "documentation": {}
+    },
+    {
+        "label": "split_infos",
+        "kind": 2,
+        "importPath": "UPLOAD.SHARE_VIDEO",
+        "description": "UPLOAD.SHARE_VIDEO",
+        "peekOfCode": "def split_infos(video_infos):\n    info = video_infos\n    title = info.split('|')[0]\n    description = info.split('|')[1]\n    tags = info.split('|')[2]\n    if ',' in tags:\n        tags = info.split('|')[2].split(\",\")\n    if '،' in tags:\n        tags = info.split('|')[2].split(\"،\")\n    return title, description, tags",
+        "detail": "UPLOAD.SHARE_VIDEO",
+        "documentation": {}
+    },
+    {
+        "label": "get_authenticated_service",
+        "kind": 2,
+        "importPath": "UPLOAD.SHARE_VIDEO",
+        "description": "UPLOAD.SHARE_VIDEO",
+        "peekOfCode": "def get_authenticated_service(TOKEN_FILE_YOUTUBE):\n    creds = None\n    if TOKEN_FILE_YOUTUBE:\n        print(\"takeing Credentials ...\")\n        creds = Credentials.from_authorized_user_file(TOKEN_FILE_YOUTUBE, SCOPES)\n        print(\"i take Credentials\")\n    if not creds or not creds.valid:\n        if creds and creds.expired and creds.refresh_token:\n            creds.refresh(Request())\n        else:",
+        "detail": "UPLOAD.SHARE_VIDEO",
+        "documentation": {}
+    },
+    {
+        "label": "share_video",
+        "kind": 2,
+        "importPath": "UPLOAD.SHARE_VIDEO",
+        "description": "UPLOAD.SHARE_VIDEO",
+        "peekOfCode": "def share_video(youtube, title, description, tags, video_path):\n    request_body = {\n        \"snippet\": {\n            \"categoryId\": \"22\",  # Category ID (e.g., 22 is for People & Blogs)\n            \"title\":title ,\n            \"description\":description ,\n            \"tags\": tags,\n        },\n        \"status\": {\n            \"privacyStatus\": \"public\",  # \"public\", \"unlisted\", or \"private\"",
+        "detail": "UPLOAD.SHARE_VIDEO",
+        "documentation": {}
+    },
+    {
+        "label": "SCOPES",
+        "kind": 5,
+        "importPath": "UPLOAD.SHARE_VIDEO",
+        "description": "UPLOAD.SHARE_VIDEO",
+        "peekOfCode": "SCOPES = [\"https://www.googleapis.com/auth/youtube.upload\"]\ndef split_infos(video_infos):\n    info = video_infos\n    title = info.split('|')[0]\n    description = info.split('|')[1]\n    tags = info.split('|')[2]\n    if ',' in tags:\n        tags = info.split('|')[2].split(\",\")\n    if '،' in tags:\n        tags = info.split('|')[2].split(\"،\")",
+        "detail": "UPLOAD.SHARE_VIDEO",
         "documentation": {}
     },
     {
@@ -781,7 +890,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "#prompts_list = create_images_prompts(images_prompt)\nprompts_list = [\"An image of two individuals engaged in a passionate conversation about politics and social issues, symbolizing the podcast's focus on raising political awareness and democratic participation.\", \"A graphic illustration showcasing various symbols of individual rights and freedoms intertwined with political elements, representing the podcast's theme of advocating for personal liberties and civic engagement.\", 'A vibrant visual representation of a diverse group of young people casting their votes in an election, highlighting the importance of youth involvement in shaping political decisions.', \"A scene depicting a person attending a political rally holding a sign with a powerful message, inspired by the podcast's content on the impact of political participation in the society.\", \"An abstract artwork with intricate patterns symbolizing the complexity of political influence and societal change, capturing the essence of the podcast's thought-provoking discussions.\", \"A thought-provoking image of a spectrum of diverse voices coming together in unity, reflecting the podcast's theme of inclusivity and the power of shared perspectives in politics.\", \"A dynamic illustration of a vibrant cityscape with people actively engaging in political discourse and activism, representing the podcast's topic of promoting civic engagement among communities.\", \"A visually appealing infographic showcasing key points related to the podcast's main idea of the intersection between politics and marginalized communities, making the information accessible and engaging.\", \"A detailed and dynamic collage featuring various symbols of political activism and social change, inspired by the podcast's in-depth exploration of the impact of current political trends on marginalized groups.\", \"A captivating scene of individuals from different backgrounds coming together in a public square, exchanging ideas and opinions on political matters, capturing the essence of the podcast's theme on promoting dialogue and awareness in the society.\"]\nprint(\"prompts list : \",prompts_list)\n#path_created_images = create_images(prompts_list,IMAGE_API_URLS,HUGGING_FACE_TOKEN)\n#print('images generated : ', path_created_images )\n# generate vedios\npath_created_images = ['images/generated_image_0.png', 'images/generated_image_1.png', 'images/generated_image_2.png', 'images/generated_image_3.png', 'images/generated_image_4.png', 'images/generated_image_5.png', 'images/generated_image_6.png', 'images/generated_image_7.png', 'images/generated_image_8.png', 'images/generated_image_9.png']\ngenerate_video(path_mixed_audio, path_created_images)",
+        "peekOfCode": "#prompts_list = create_images_prompts(images_prompt)\nprompts_list = [\"An image of two individuals engaged in a passionate conversation about politics and social issues, symbolizing the podcast's focus on raising political awareness and democratic participation.\", \"A graphic illustration showcasing various symbols of individual rights and freedoms intertwined with political elements, representing the podcast's theme of advocating for personal liberties and civic engagement.\", 'A vibrant visual representation of a diverse group of young people casting their votes in an election, highlighting the importance of youth involvement in shaping political decisions.', \"A scene depicting a person attending a political rally holding a sign with a powerful message, inspired by the podcast's content on the impact of political participation in the society.\", \"An abstract artwork with intricate patterns symbolizing the complexity of political influence and societal change, capturing the essence of the podcast's thought-provoking discussions.\", \"A thought-provoking image of a spectrum of diverse voices coming together in unity, reflecting the podcast's theme of inclusivity and the power of shared perspectives in politics.\", \"A dynamic illustration of a vibrant cityscape with people actively engaging in political discourse and activism, representing the podcast's topic of promoting civic engagement among communities.\", \"A visually appealing infographic showcasing key points related to the podcast's main idea of the intersection between politics and marginalized communities, making the information accessible and engaging.\", \"A detailed and dynamic collage featuring various symbols of political activism and social change, inspired by the podcast's in-depth exploration of the impact of current political trends on marginalized groups.\", \"A captivating scene of individuals from different backgrounds coming together in a public square, exchanging ideas and opinions on political matters, capturing the essence of the podcast's theme on promoting dialogue and awareness in the society.\"]\n#print(\"prompts list : \",prompts_list)\n#path_created_images = create_images(prompts_list,IMAGE_API_URLS,HUGGING_FACE_TOKEN)\n#print('images generated : ', path_created_images )\n# generate vedios\npath_created_images = ['images/generated_image_0.png', 'images/generated_image_1.png', 'images/generated_image_2.png', 'images/generated_image_3.png', 'images/generated_image_4.png', 'images/generated_image_5.png', 'images/generated_image_6.png', 'images/generated_image_7.png', 'images/generated_image_8.png', 'images/generated_image_9.png']\n#output_video_path = generate_video(path_mixed_audio, path_created_images)\noutput_video_path = \"podcast/podcast.mp4\"\n# upload to youtube",
         "detail": "main",
         "documentation": {}
     },
@@ -790,7 +899,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "prompts_list = [\"An image of two individuals engaged in a passionate conversation about politics and social issues, symbolizing the podcast's focus on raising political awareness and democratic participation.\", \"A graphic illustration showcasing various symbols of individual rights and freedoms intertwined with political elements, representing the podcast's theme of advocating for personal liberties and civic engagement.\", 'A vibrant visual representation of a diverse group of young people casting their votes in an election, highlighting the importance of youth involvement in shaping political decisions.', \"A scene depicting a person attending a political rally holding a sign with a powerful message, inspired by the podcast's content on the impact of political participation in the society.\", \"An abstract artwork with intricate patterns symbolizing the complexity of political influence and societal change, capturing the essence of the podcast's thought-provoking discussions.\", \"A thought-provoking image of a spectrum of diverse voices coming together in unity, reflecting the podcast's theme of inclusivity and the power of shared perspectives in politics.\", \"A dynamic illustration of a vibrant cityscape with people actively engaging in political discourse and activism, representing the podcast's topic of promoting civic engagement among communities.\", \"A visually appealing infographic showcasing key points related to the podcast's main idea of the intersection between politics and marginalized communities, making the information accessible and engaging.\", \"A detailed and dynamic collage featuring various symbols of political activism and social change, inspired by the podcast's in-depth exploration of the impact of current political trends on marginalized groups.\", \"A captivating scene of individuals from different backgrounds coming together in a public square, exchanging ideas and opinions on political matters, capturing the essence of the podcast's theme on promoting dialogue and awareness in the society.\"]\nprint(\"prompts list : \",prompts_list)\n#path_created_images = create_images(prompts_list,IMAGE_API_URLS,HUGGING_FACE_TOKEN)\n#print('images generated : ', path_created_images )\n# generate vedios\npath_created_images = ['images/generated_image_0.png', 'images/generated_image_1.png', 'images/generated_image_2.png', 'images/generated_image_3.png', 'images/generated_image_4.png', 'images/generated_image_5.png', 'images/generated_image_6.png', 'images/generated_image_7.png', 'images/generated_image_8.png', 'images/generated_image_9.png']\ngenerate_video(path_mixed_audio, path_created_images)",
+        "peekOfCode": "prompts_list = [\"An image of two individuals engaged in a passionate conversation about politics and social issues, symbolizing the podcast's focus on raising political awareness and democratic participation.\", \"A graphic illustration showcasing various symbols of individual rights and freedoms intertwined with political elements, representing the podcast's theme of advocating for personal liberties and civic engagement.\", 'A vibrant visual representation of a diverse group of young people casting their votes in an election, highlighting the importance of youth involvement in shaping political decisions.', \"A scene depicting a person attending a political rally holding a sign with a powerful message, inspired by the podcast's content on the impact of political participation in the society.\", \"An abstract artwork with intricate patterns symbolizing the complexity of political influence and societal change, capturing the essence of the podcast's thought-provoking discussions.\", \"A thought-provoking image of a spectrum of diverse voices coming together in unity, reflecting the podcast's theme of inclusivity and the power of shared perspectives in politics.\", \"A dynamic illustration of a vibrant cityscape with people actively engaging in political discourse and activism, representing the podcast's topic of promoting civic engagement among communities.\", \"A visually appealing infographic showcasing key points related to the podcast's main idea of the intersection between politics and marginalized communities, making the information accessible and engaging.\", \"A detailed and dynamic collage featuring various symbols of political activism and social change, inspired by the podcast's in-depth exploration of the impact of current political trends on marginalized groups.\", \"A captivating scene of individuals from different backgrounds coming together in a public square, exchanging ideas and opinions on political matters, capturing the essence of the podcast's theme on promoting dialogue and awareness in the society.\"]\n#print(\"prompts list : \",prompts_list)\n#path_created_images = create_images(prompts_list,IMAGE_API_URLS,HUGGING_FACE_TOKEN)\n#print('images generated : ', path_created_images )\n# generate vedios\npath_created_images = ['images/generated_image_0.png', 'images/generated_image_1.png', 'images/generated_image_2.png', 'images/generated_image_3.png', 'images/generated_image_4.png', 'images/generated_image_5.png', 'images/generated_image_6.png', 'images/generated_image_7.png', 'images/generated_image_8.png', 'images/generated_image_9.png']\n#output_video_path = generate_video(path_mixed_audio, path_created_images)\noutput_video_path = \"podcast/podcast.mp4\"\n# upload to youtube\nUPLOAD_TO_YOUTUBE = os.getenv(\"UPLOAD_TO_YOUTUBE\")",
         "detail": "main",
         "documentation": {}
     },
@@ -799,7 +908,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "#path_created_images = create_images(prompts_list,IMAGE_API_URLS,HUGGING_FACE_TOKEN)\n#print('images generated : ', path_created_images )\n# generate vedios\npath_created_images = ['images/generated_image_0.png', 'images/generated_image_1.png', 'images/generated_image_2.png', 'images/generated_image_3.png', 'images/generated_image_4.png', 'images/generated_image_5.png', 'images/generated_image_6.png', 'images/generated_image_7.png', 'images/generated_image_8.png', 'images/generated_image_9.png']\ngenerate_video(path_mixed_audio, path_created_images)",
+        "peekOfCode": "#path_created_images = create_images(prompts_list,IMAGE_API_URLS,HUGGING_FACE_TOKEN)\n#print('images generated : ', path_created_images )\n# generate vedios\npath_created_images = ['images/generated_image_0.png', 'images/generated_image_1.png', 'images/generated_image_2.png', 'images/generated_image_3.png', 'images/generated_image_4.png', 'images/generated_image_5.png', 'images/generated_image_6.png', 'images/generated_image_7.png', 'images/generated_image_8.png', 'images/generated_image_9.png']\n#output_video_path = generate_video(path_mixed_audio, path_created_images)\noutput_video_path = \"podcast/podcast.mp4\"\n# upload to youtube\nUPLOAD_TO_YOUTUBE = os.getenv(\"UPLOAD_TO_YOUTUBE\")\nTOKEN_FILE_YOUTUBE = os.getenv(\"TOKEN_FILE_YOUTUBE\")\nshare_prompt = open(\"PROMPTS/share_prompt.txt\", \"r\", encoding =\"UTF-8\").read()",
         "detail": "main",
         "documentation": {}
     },
@@ -808,7 +917,52 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "path_created_images = ['images/generated_image_0.png', 'images/generated_image_1.png', 'images/generated_image_2.png', 'images/generated_image_3.png', 'images/generated_image_4.png', 'images/generated_image_5.png', 'images/generated_image_6.png', 'images/generated_image_7.png', 'images/generated_image_8.png', 'images/generated_image_9.png']\ngenerate_video(path_mixed_audio, path_created_images)",
+        "peekOfCode": "path_created_images = ['images/generated_image_0.png', 'images/generated_image_1.png', 'images/generated_image_2.png', 'images/generated_image_3.png', 'images/generated_image_4.png', 'images/generated_image_5.png', 'images/generated_image_6.png', 'images/generated_image_7.png', 'images/generated_image_8.png', 'images/generated_image_9.png']\n#output_video_path = generate_video(path_mixed_audio, path_created_images)\noutput_video_path = \"podcast/podcast.mp4\"\n# upload to youtube\nUPLOAD_TO_YOUTUBE = os.getenv(\"UPLOAD_TO_YOUTUBE\")\nTOKEN_FILE_YOUTUBE = os.getenv(\"TOKEN_FILE_YOUTUBE\")\nshare_prompt = open(\"PROMPTS/share_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nprint('sharing is :', UPLOAD_TO_YOUTUBE)\nif UPLOAD_TO_YOUTUBE == \"ON\":\n    print(share_prompt)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "#output_video_path",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "#output_video_path = generate_video(path_mixed_audio, path_created_images)\noutput_video_path = \"podcast/podcast.mp4\"\n# upload to youtube\nUPLOAD_TO_YOUTUBE = os.getenv(\"UPLOAD_TO_YOUTUBE\")\nTOKEN_FILE_YOUTUBE = os.getenv(\"TOKEN_FILE_YOUTUBE\")\nshare_prompt = open(\"PROMPTS/share_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nprint('sharing is :', UPLOAD_TO_YOUTUBE)\nif UPLOAD_TO_YOUTUBE == \"ON\":\n    print(share_prompt)\n    video_infos = send_prompt(share_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "output_video_path",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "output_video_path = \"podcast/podcast.mp4\"\n# upload to youtube\nUPLOAD_TO_YOUTUBE = os.getenv(\"UPLOAD_TO_YOUTUBE\")\nTOKEN_FILE_YOUTUBE = os.getenv(\"TOKEN_FILE_YOUTUBE\")\nshare_prompt = open(\"PROMPTS/share_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nprint('sharing is :', UPLOAD_TO_YOUTUBE)\nif UPLOAD_TO_YOUTUBE == \"ON\":\n    print(share_prompt)\n    video_infos = send_prompt(share_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\n    title, description, tags = split_infos(video_infos)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "UPLOAD_TO_YOUTUBE",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "UPLOAD_TO_YOUTUBE = os.getenv(\"UPLOAD_TO_YOUTUBE\")\nTOKEN_FILE_YOUTUBE = os.getenv(\"TOKEN_FILE_YOUTUBE\")\nshare_prompt = open(\"PROMPTS/share_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nprint('sharing is :', UPLOAD_TO_YOUTUBE)\nif UPLOAD_TO_YOUTUBE == \"ON\":\n    print(share_prompt)\n    video_infos = send_prompt(share_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\n    title, description, tags = split_infos(video_infos)\n    with open(\"video_infos.txt\", \"w\", encoding =\"UTF-8\") as file:\n        content = f\"\"\"",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "TOKEN_FILE_YOUTUBE",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "TOKEN_FILE_YOUTUBE = os.getenv(\"TOKEN_FILE_YOUTUBE\")\nshare_prompt = open(\"PROMPTS/share_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nprint('sharing is :', UPLOAD_TO_YOUTUBE)\nif UPLOAD_TO_YOUTUBE == \"ON\":\n    print(share_prompt)\n    video_infos = send_prompt(share_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\n    title, description, tags = split_infos(video_infos)\n    with open(\"video_infos.txt\", \"w\", encoding =\"UTF-8\") as file:\n        content = f\"\"\"\n        video infos : {video_infos} .",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "share_prompt",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "share_prompt = open(\"PROMPTS/share_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nprint('sharing is :', UPLOAD_TO_YOUTUBE)\nif UPLOAD_TO_YOUTUBE == \"ON\":\n    print(share_prompt)\n    video_infos = send_prompt(share_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\n    title, description, tags = split_infos(video_infos)\n    with open(\"video_infos.txt\", \"w\", encoding =\"UTF-8\") as file:\n        content = f\"\"\"\n        video infos : {video_infos} .\n        title : {title} .",
         "detail": "main",
         "documentation": {}
     },

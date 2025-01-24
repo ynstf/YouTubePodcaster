@@ -8,6 +8,7 @@ from MUSIC.GENERATE_MUSIC import generate_music
 from MUSIC.FIX_MUSIC import fix_music
 from IMAGE.GENERATE_IMAGES import create_images_prompts, create_images
 from VIDEO.GENERATE_VIDEO import generate_video
+from UPLOAD.SHARE_VIDEO import share_video,split_infos, get_authenticated_service
 
 # Load environment variables from .env file
 load_dotenv()
@@ -121,7 +122,7 @@ images_prompt = """1. An image of two individuals engaged in a passionate conver
 10. A captivating scene of individuals from different backgrounds coming together in a public square, exchanging ideas and opinions on political matters, capturing the essence of the podcast's theme on promoting dialogue and awareness in the society."""
 #prompts_list = create_images_prompts(images_prompt)
 prompts_list = ["An image of two individuals engaged in a passionate conversation about politics and social issues, symbolizing the podcast's focus on raising political awareness and democratic participation.", "A graphic illustration showcasing various symbols of individual rights and freedoms intertwined with political elements, representing the podcast's theme of advocating for personal liberties and civic engagement.", 'A vibrant visual representation of a diverse group of young people casting their votes in an election, highlighting the importance of youth involvement in shaping political decisions.', "A scene depicting a person attending a political rally holding a sign with a powerful message, inspired by the podcast's content on the impact of political participation in the society.", "An abstract artwork with intricate patterns symbolizing the complexity of political influence and societal change, capturing the essence of the podcast's thought-provoking discussions.", "A thought-provoking image of a spectrum of diverse voices coming together in unity, reflecting the podcast's theme of inclusivity and the power of shared perspectives in politics.", "A dynamic illustration of a vibrant cityscape with people actively engaging in political discourse and activism, representing the podcast's topic of promoting civic engagement among communities.", "A visually appealing infographic showcasing key points related to the podcast's main idea of the intersection between politics and marginalized communities, making the information accessible and engaging.", "A detailed and dynamic collage featuring various symbols of political activism and social change, inspired by the podcast's in-depth exploration of the impact of current political trends on marginalized groups.", "A captivating scene of individuals from different backgrounds coming together in a public square, exchanging ideas and opinions on political matters, capturing the essence of the podcast's theme on promoting dialogue and awareness in the society."]
-print("prompts list : ",prompts_list)
+#print("prompts list : ",prompts_list)
 
 #path_created_images = create_images(prompts_list,IMAGE_API_URLS,HUGGING_FACE_TOKEN)
 #print('images generated : ', path_created_images )
@@ -131,12 +132,37 @@ print("prompts list : ",prompts_list)
 
 # generate vedios
 path_created_images = ['images/generated_image_0.png', 'images/generated_image_1.png', 'images/generated_image_2.png', 'images/generated_image_3.png', 'images/generated_image_4.png', 'images/generated_image_5.png', 'images/generated_image_6.png', 'images/generated_image_7.png', 'images/generated_image_8.png', 'images/generated_image_9.png']
-generate_video(path_mixed_audio, path_created_images)
+#output_video_path = generate_video(path_mixed_audio, path_created_images)
+output_video_path = "podcast/podcast.mp4"
 
 
 
 
+# upload to youtube
 
+UPLOAD_TO_YOUTUBE = os.getenv("UPLOAD_TO_YOUTUBE")
+TOKEN_FILE_YOUTUBE = os.getenv("TOKEN_FILE_YOUTUBE")
+share_prompt = open("PROMPTS/share_prompt.txt", "r", encoding ="UTF-8").read()
+print('sharing is :', UPLOAD_TO_YOUTUBE)
+
+
+
+
+if UPLOAD_TO_YOUTUBE == "ON":
+    print(share_prompt)
+    video_infos = send_prompt(share_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)
+    title, description, tags = split_infos(video_infos)
+    with open("video_infos.txt", "w", encoding ="UTF-8") as file:
+        content = f"""
+        video infos : {video_infos} .
+        title : {title} .
+        description : {description} .
+        tags : {tags} .
+        """
+        file.write(content)
+    youtube = get_authenticated_service(TOKEN_FILE_YOUTUBE)
+    print("youtube ready !!")
+    share_video(youtube, title, description, tags, output_video_path)
 
 
 
