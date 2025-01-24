@@ -33,6 +33,38 @@
         "documentation": {}
     },
     {
+        "label": "ImageSequenceClip",
+        "importPath": "moviepy.editor",
+        "description": "moviepy.editor",
+        "isExtraImport": true,
+        "detail": "moviepy.editor",
+        "documentation": {}
+    },
+    {
+        "label": "AudioFileClip",
+        "importPath": "moviepy.editor",
+        "description": "moviepy.editor",
+        "isExtraImport": true,
+        "detail": "moviepy.editor",
+        "documentation": {}
+    },
+    {
+        "label": "concatenate_videoclips",
+        "importPath": "moviepy.editor",
+        "description": "moviepy.editor",
+        "isExtraImport": true,
+        "detail": "moviepy.editor",
+        "documentation": {}
+    },
+    {
+        "label": "CompositeVideoClip",
+        "importPath": "moviepy.editor",
+        "description": "moviepy.editor",
+        "isExtraImport": true,
+        "detail": "moviepy.editor",
+        "documentation": {}
+    },
+    {
         "label": "soundfile",
         "kind": 6,
         "isExtraImport": true,
@@ -138,6 +170,22 @@
         "documentation": {}
     },
     {
+        "label": "fadein",
+        "importPath": "moviepy.video.fx.all",
+        "description": "moviepy.video.fx.all",
+        "isExtraImport": true,
+        "detail": "moviepy.video.fx.all",
+        "documentation": {}
+    },
+    {
+        "label": "fadeout",
+        "importPath": "moviepy.video.fx.all",
+        "description": "moviepy.video.fx.all",
+        "isExtraImport": true,
+        "detail": "moviepy.video.fx.all",
+        "documentation": {}
+    },
+    {
         "label": "load_dotenv",
         "importPath": "dotenv",
         "description": "dotenv",
@@ -223,6 +271,14 @@
         "description": "IMAGE.GENERATE_IMAGES",
         "isExtraImport": true,
         "detail": "IMAGE.GENERATE_IMAGES",
+        "documentation": {}
+    },
+    {
+        "label": "generate_video",
+        "importPath": "VIDEO.GENERATE_VIDEO",
+        "description": "VIDEO.GENERATE_VIDEO",
+        "isExtraImport": true,
+        "detail": "VIDEO.GENERATE_VIDEO",
         "documentation": {}
     },
     {
@@ -412,6 +468,15 @@
         "description": "REDDIT.GENERATE_REDDIT",
         "peekOfCode": "def create_content(CLIENT_ID,CLIENT_SECRET,USER_AGENT):\n    # Initialize PRAW\n    reddit = praw.Reddit(\n        client_id=CLIENT_ID,\n        client_secret=CLIENT_SECRET,\n        user_agent=USER_AGENT\n    )\n    # File to store previously fetched subjects\n    DONE_SUBJECTS_FILE = \"done_subjects.txt\"\n    SAVE_CONTENT_FILE = \"content.txt\"",
         "detail": "REDDIT.GENERATE_REDDIT",
+        "documentation": {}
+    },
+    {
+        "label": "generate_video",
+        "kind": 2,
+        "importPath": "VIDEO.GENERATE_VIDEO",
+        "description": "VIDEO.GENERATE_VIDEO",
+        "peekOfCode": "def generate_video(audio_path,image_paths):\n    # Paths\n    #audio_path = \"pudcast/combined_output.mp3\"\n    #image_folder = \"images\"\n    output_video_path = \"podcast/podcast.mp4\"\n    # Get the list of image paths in order\n    # Load the audio and calculate its duration\n    audio_clip = AudioFileClip(audio_path)\n    audio_duration = audio_clip.duration  # Total duration of the audio in seconds\n    # Calculate the duration for each image",
+        "detail": "VIDEO.GENERATE_VIDEO",
         "documentation": {}
     },
     {
@@ -635,7 +700,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "#path_fixed = fix_music()\n#print(path_fixed)\npath_fixed = \"podcast/background_fixed.mp3\"\n# mix music with audio \nprint(\"MIXING PODCUST\")\n#path_mixed_audio = mix_podcust_audio(path_podcust_audio,path_fixed)\n#print(path_mixed_audio)\n# generate images\n# Get the IMAGE_API_URLS from the .env file\nimage_api_urls_str = os.getenv(\"IMAGE_API_URLS\")",
+        "peekOfCode": "#path_fixed = fix_music()\n#print(path_fixed)\npath_fixed = \"podcast/background_fixed.mp3\"\n# mix music with audio \nprint(\"MIXING PODCUST\")\n#path_mixed_audio = mix_podcust_audio(path_podcust_audio,path_fixed)\n#print(path_mixed_audio)\npath_mixed_audio = \"podcast/mixed_podcast.mp3\"\n# generate images\n# Get the IMAGE_API_URLS from the .env file",
         "detail": "main",
         "documentation": {}
     },
@@ -644,7 +709,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "path_fixed = \"podcast/background_fixed.mp3\"\n# mix music with audio \nprint(\"MIXING PODCUST\")\n#path_mixed_audio = mix_podcust_audio(path_podcust_audio,path_fixed)\n#print(path_mixed_audio)\n# generate images\n# Get the IMAGE_API_URLS from the .env file\nimage_api_urls_str = os.getenv(\"IMAGE_API_URLS\")\n# Split the string into a list\nIMAGE_API_URLS = image_api_urls_str.split(\",\")",
+        "peekOfCode": "path_fixed = \"podcast/background_fixed.mp3\"\n# mix music with audio \nprint(\"MIXING PODCUST\")\n#path_mixed_audio = mix_podcust_audio(path_podcust_audio,path_fixed)\n#print(path_mixed_audio)\npath_mixed_audio = \"podcast/mixed_podcast.mp3\"\n# generate images\n# Get the IMAGE_API_URLS from the .env file\nimage_api_urls_str = os.getenv(\"IMAGE_API_URLS\")\n# Split the string into a list",
         "detail": "main",
         "documentation": {}
     },
@@ -653,7 +718,16 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "#path_mixed_audio = mix_podcust_audio(path_podcust_audio,path_fixed)\n#print(path_mixed_audio)\n# generate images\n# Get the IMAGE_API_URLS from the .env file\nimage_api_urls_str = os.getenv(\"IMAGE_API_URLS\")\n# Split the string into a list\nIMAGE_API_URLS = image_api_urls_str.split(\",\")\n# Print the list to verify\nprint('IMAGE_API_URLS : ',IMAGE_API_URLS)\nllm_images_prompt = open(\"PROMPTS/images_prompt.txt\", \"r\", encoding =\"UTF-8\").read()",
+        "peekOfCode": "#path_mixed_audio = mix_podcust_audio(path_podcust_audio,path_fixed)\n#print(path_mixed_audio)\npath_mixed_audio = \"podcast/mixed_podcast.mp3\"\n# generate images\n# Get the IMAGE_API_URLS from the .env file\nimage_api_urls_str = os.getenv(\"IMAGE_API_URLS\")\n# Split the string into a list\nIMAGE_API_URLS = image_api_urls_str.split(\",\")\n# Print the list to verify\nprint('IMAGE_API_URLS : ',IMAGE_API_URLS)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "path_mixed_audio",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "path_mixed_audio = \"podcast/mixed_podcast.mp3\"\n# generate images\n# Get the IMAGE_API_URLS from the .env file\nimage_api_urls_str = os.getenv(\"IMAGE_API_URLS\")\n# Split the string into a list\nIMAGE_API_URLS = image_api_urls_str.split(\",\")\n# Print the list to verify\nprint('IMAGE_API_URLS : ',IMAGE_API_URLS)\nllm_images_prompt = open(\"PROMPTS/images_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\n#images_prompt = send_prompt(llm_images_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)",
         "detail": "main",
         "documentation": {}
     },
@@ -707,7 +781,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "#prompts_list = create_images_prompts(images_prompt)\nprompts_list = [\"An image of two individuals engaged in a passionate conversation about politics and social issues, symbolizing the podcast's focus on raising political awareness and democratic participation.\", \"A graphic illustration showcasing various symbols of individual rights and freedoms intertwined with political elements, representing the podcast's theme of advocating for personal liberties and civic engagement.\", 'A vibrant visual representation of a diverse group of young people casting their votes in an election, highlighting the importance of youth involvement in shaping political decisions.', \"A scene depicting a person attending a political rally holding a sign with a powerful message, inspired by the podcast's content on the impact of political participation in the society.\", \"An abstract artwork with intricate patterns symbolizing the complexity of political influence and societal change, capturing the essence of the podcast's thought-provoking discussions.\", \"A thought-provoking image of a spectrum of diverse voices coming together in unity, reflecting the podcast's theme of inclusivity and the power of shared perspectives in politics.\", \"A dynamic illustration of a vibrant cityscape with people actively engaging in political discourse and activism, representing the podcast's topic of promoting civic engagement among communities.\", \"A visually appealing infographic showcasing key points related to the podcast's main idea of the intersection between politics and marginalized communities, making the information accessible and engaging.\", \"A detailed and dynamic collage featuring various symbols of political activism and social change, inspired by the podcast's in-depth exploration of the impact of current political trends on marginalized groups.\", \"A captivating scene of individuals from different backgrounds coming together in a public square, exchanging ideas and opinions on political matters, capturing the essence of the podcast's theme on promoting dialogue and awareness in the society.\"]\nprint(\"prompts list : \",prompts_list)\npath_created_images = create_images(prompts_list,IMAGE_API_URLS,HUGGING_FACE_TOKEN)\nprint('images generated : ', path_created_images )\n# generate vedios",
+        "peekOfCode": "#prompts_list = create_images_prompts(images_prompt)\nprompts_list = [\"An image of two individuals engaged in a passionate conversation about politics and social issues, symbolizing the podcast's focus on raising political awareness and democratic participation.\", \"A graphic illustration showcasing various symbols of individual rights and freedoms intertwined with political elements, representing the podcast's theme of advocating for personal liberties and civic engagement.\", 'A vibrant visual representation of a diverse group of young people casting their votes in an election, highlighting the importance of youth involvement in shaping political decisions.', \"A scene depicting a person attending a political rally holding a sign with a powerful message, inspired by the podcast's content on the impact of political participation in the society.\", \"An abstract artwork with intricate patterns symbolizing the complexity of political influence and societal change, capturing the essence of the podcast's thought-provoking discussions.\", \"A thought-provoking image of a spectrum of diverse voices coming together in unity, reflecting the podcast's theme of inclusivity and the power of shared perspectives in politics.\", \"A dynamic illustration of a vibrant cityscape with people actively engaging in political discourse and activism, representing the podcast's topic of promoting civic engagement among communities.\", \"A visually appealing infographic showcasing key points related to the podcast's main idea of the intersection between politics and marginalized communities, making the information accessible and engaging.\", \"A detailed and dynamic collage featuring various symbols of political activism and social change, inspired by the podcast's in-depth exploration of the impact of current political trends on marginalized groups.\", \"A captivating scene of individuals from different backgrounds coming together in a public square, exchanging ideas and opinions on political matters, capturing the essence of the podcast's theme on promoting dialogue and awareness in the society.\"]\nprint(\"prompts list : \",prompts_list)\n#path_created_images = create_images(prompts_list,IMAGE_API_URLS,HUGGING_FACE_TOKEN)\n#print('images generated : ', path_created_images )\n# generate vedios\npath_created_images = ['images/generated_image_0.png', 'images/generated_image_1.png', 'images/generated_image_2.png', 'images/generated_image_3.png', 'images/generated_image_4.png', 'images/generated_image_5.png', 'images/generated_image_6.png', 'images/generated_image_7.png', 'images/generated_image_8.png', 'images/generated_image_9.png']\ngenerate_video(path_mixed_audio, path_created_images)",
         "detail": "main",
         "documentation": {}
     },
@@ -716,7 +790,16 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "prompts_list = [\"An image of two individuals engaged in a passionate conversation about politics and social issues, symbolizing the podcast's focus on raising political awareness and democratic participation.\", \"A graphic illustration showcasing various symbols of individual rights and freedoms intertwined with political elements, representing the podcast's theme of advocating for personal liberties and civic engagement.\", 'A vibrant visual representation of a diverse group of young people casting their votes in an election, highlighting the importance of youth involvement in shaping political decisions.', \"A scene depicting a person attending a political rally holding a sign with a powerful message, inspired by the podcast's content on the impact of political participation in the society.\", \"An abstract artwork with intricate patterns symbolizing the complexity of political influence and societal change, capturing the essence of the podcast's thought-provoking discussions.\", \"A thought-provoking image of a spectrum of diverse voices coming together in unity, reflecting the podcast's theme of inclusivity and the power of shared perspectives in politics.\", \"A dynamic illustration of a vibrant cityscape with people actively engaging in political discourse and activism, representing the podcast's topic of promoting civic engagement among communities.\", \"A visually appealing infographic showcasing key points related to the podcast's main idea of the intersection between politics and marginalized communities, making the information accessible and engaging.\", \"A detailed and dynamic collage featuring various symbols of political activism and social change, inspired by the podcast's in-depth exploration of the impact of current political trends on marginalized groups.\", \"A captivating scene of individuals from different backgrounds coming together in a public square, exchanging ideas and opinions on political matters, capturing the essence of the podcast's theme on promoting dialogue and awareness in the society.\"]\nprint(\"prompts list : \",prompts_list)\npath_created_images = create_images(prompts_list,IMAGE_API_URLS,HUGGING_FACE_TOKEN)\nprint('images generated : ', path_created_images )\n# generate vedios",
+        "peekOfCode": "prompts_list = [\"An image of two individuals engaged in a passionate conversation about politics and social issues, symbolizing the podcast's focus on raising political awareness and democratic participation.\", \"A graphic illustration showcasing various symbols of individual rights and freedoms intertwined with political elements, representing the podcast's theme of advocating for personal liberties and civic engagement.\", 'A vibrant visual representation of a diverse group of young people casting their votes in an election, highlighting the importance of youth involvement in shaping political decisions.', \"A scene depicting a person attending a political rally holding a sign with a powerful message, inspired by the podcast's content on the impact of political participation in the society.\", \"An abstract artwork with intricate patterns symbolizing the complexity of political influence and societal change, capturing the essence of the podcast's thought-provoking discussions.\", \"A thought-provoking image of a spectrum of diverse voices coming together in unity, reflecting the podcast's theme of inclusivity and the power of shared perspectives in politics.\", \"A dynamic illustration of a vibrant cityscape with people actively engaging in political discourse and activism, representing the podcast's topic of promoting civic engagement among communities.\", \"A visually appealing infographic showcasing key points related to the podcast's main idea of the intersection between politics and marginalized communities, making the information accessible and engaging.\", \"A detailed and dynamic collage featuring various symbols of political activism and social change, inspired by the podcast's in-depth exploration of the impact of current political trends on marginalized groups.\", \"A captivating scene of individuals from different backgrounds coming together in a public square, exchanging ideas and opinions on political matters, capturing the essence of the podcast's theme on promoting dialogue and awareness in the society.\"]\nprint(\"prompts list : \",prompts_list)\n#path_created_images = create_images(prompts_list,IMAGE_API_URLS,HUGGING_FACE_TOKEN)\n#print('images generated : ', path_created_images )\n# generate vedios\npath_created_images = ['images/generated_image_0.png', 'images/generated_image_1.png', 'images/generated_image_2.png', 'images/generated_image_3.png', 'images/generated_image_4.png', 'images/generated_image_5.png', 'images/generated_image_6.png', 'images/generated_image_7.png', 'images/generated_image_8.png', 'images/generated_image_9.png']\ngenerate_video(path_mixed_audio, path_created_images)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "#path_created_images",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "#path_created_images = create_images(prompts_list,IMAGE_API_URLS,HUGGING_FACE_TOKEN)\n#print('images generated : ', path_created_images )\n# generate vedios\npath_created_images = ['images/generated_image_0.png', 'images/generated_image_1.png', 'images/generated_image_2.png', 'images/generated_image_3.png', 'images/generated_image_4.png', 'images/generated_image_5.png', 'images/generated_image_6.png', 'images/generated_image_7.png', 'images/generated_image_8.png', 'images/generated_image_9.png']\ngenerate_video(path_mixed_audio, path_created_images)",
         "detail": "main",
         "documentation": {}
     },
@@ -725,7 +808,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "path_created_images = create_images(prompts_list,IMAGE_API_URLS,HUGGING_FACE_TOKEN)\nprint('images generated : ', path_created_images )\n# generate vedios",
+        "peekOfCode": "path_created_images = ['images/generated_image_0.png', 'images/generated_image_1.png', 'images/generated_image_2.png', 'images/generated_image_3.png', 'images/generated_image_4.png', 'images/generated_image_5.png', 'images/generated_image_6.png', 'images/generated_image_7.png', 'images/generated_image_8.png', 'images/generated_image_9.png']\ngenerate_video(path_mixed_audio, path_created_images)",
         "detail": "main",
         "documentation": {}
     },

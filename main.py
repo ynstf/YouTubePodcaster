@@ -7,6 +7,7 @@ from AUDIO.GENERATE_AUDIO import create_audios, create_one_audio, mix_podcust_au
 from MUSIC.GENERATE_MUSIC import generate_music
 from MUSIC.FIX_MUSIC import fix_music
 from IMAGE.GENERATE_IMAGES import create_images_prompts, create_images
+from VIDEO.GENERATE_VIDEO import generate_video
 
 # Load environment variables from .env file
 load_dotenv()
@@ -94,6 +95,7 @@ path_fixed = "podcast/background_fixed.mp3"
 print("MIXING PODCUST")
 #path_mixed_audio = mix_podcust_audio(path_podcust_audio,path_fixed)
 #print(path_mixed_audio)
+path_mixed_audio = "podcast/mixed_podcast.mp3"
 
 
 # generate images
@@ -121,15 +123,15 @@ images_prompt = """1. An image of two individuals engaged in a passionate conver
 prompts_list = ["An image of two individuals engaged in a passionate conversation about politics and social issues, symbolizing the podcast's focus on raising political awareness and democratic participation.", "A graphic illustration showcasing various symbols of individual rights and freedoms intertwined with political elements, representing the podcast's theme of advocating for personal liberties and civic engagement.", 'A vibrant visual representation of a diverse group of young people casting their votes in an election, highlighting the importance of youth involvement in shaping political decisions.', "A scene depicting a person attending a political rally holding a sign with a powerful message, inspired by the podcast's content on the impact of political participation in the society.", "An abstract artwork with intricate patterns symbolizing the complexity of political influence and societal change, capturing the essence of the podcast's thought-provoking discussions.", "A thought-provoking image of a spectrum of diverse voices coming together in unity, reflecting the podcast's theme of inclusivity and the power of shared perspectives in politics.", "A dynamic illustration of a vibrant cityscape with people actively engaging in political discourse and activism, representing the podcast's topic of promoting civic engagement among communities.", "A visually appealing infographic showcasing key points related to the podcast's main idea of the intersection between politics and marginalized communities, making the information accessible and engaging.", "A detailed and dynamic collage featuring various symbols of political activism and social change, inspired by the podcast's in-depth exploration of the impact of current political trends on marginalized groups.", "A captivating scene of individuals from different backgrounds coming together in a public square, exchanging ideas and opinions on political matters, capturing the essence of the podcast's theme on promoting dialogue and awareness in the society."]
 print("prompts list : ",prompts_list)
 
-path_created_images = create_images(prompts_list,IMAGE_API_URLS,HUGGING_FACE_TOKEN)
-print('images generated : ', path_created_images )
+#path_created_images = create_images(prompts_list,IMAGE_API_URLS,HUGGING_FACE_TOKEN)
+#print('images generated : ', path_created_images )
 
 
 
 
 # generate vedios
-
-
+path_created_images = ['images/generated_image_0.png', 'images/generated_image_1.png', 'images/generated_image_2.png', 'images/generated_image_3.png', 'images/generated_image_4.png', 'images/generated_image_5.png', 'images/generated_image_6.png', 'images/generated_image_7.png', 'images/generated_image_8.png', 'images/generated_image_9.png']
+generate_video(path_mixed_audio, path_created_images)
 
 
 
