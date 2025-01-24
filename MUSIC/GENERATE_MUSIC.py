@@ -1,13 +1,10 @@
-from ..LLM.GENERATE_PODCUST import send_prompt
+import os
 import requests
 import time
 
-# Function to generate a conversation
-def generate_music_prompt(prompt,podcust):
-    prompt_total = prompt + podcust
-    return send_prompt(prompt_total)
 
-def generate_music(prompt,podcust,HUGGING_FACE_TOKEN,API_URL):
+
+def generate_music(prompt,podcust,HUGGING_FACE_TOKEN,API_URL,file_path):
     # Your Hugging Face API token
     headers = {
         "Authorization": f"Bearer {HUGGING_FACE_TOKEN}",
@@ -24,7 +21,7 @@ def generate_music(prompt,podcust,HUGGING_FACE_TOKEN,API_URL):
         # Check if the request was successful
         if response.status_code == 200:
             # Save the generated music
-            with open("podcust/background.mp3", "wb") as f:
+            with open(file_path, "wb") as f:
                 f.write(response.content)
             print("Music saved as 'podcust/background.mp3'")
             break
@@ -33,6 +30,6 @@ def generate_music(prompt,podcust,HUGGING_FACE_TOKEN,API_URL):
             print(response.text)
         time.sleep(5)
     
-    return "podcust/background.mp3"
+    return file_path
 
 

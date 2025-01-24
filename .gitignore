@@ -3,7 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 YTBenv
-
+myenv
 # C extensions
 *.so
 

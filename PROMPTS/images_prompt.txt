@@ -1,0 +1,12 @@
+    Generate a list of 10 detailed image prompts based on the podcast i will give you. Each prompt should describe a unique scene related to the podcast's theme. Ensure all images are in YouTube size (1280x720 pixels) and are visually engaging. Separate each prompt with a comma:  
+    1. A visually engaging scene related to the podcast topic,  
+    2. A creative representation of the podcast's main theme,  
+    3. A dynamic image idea that captures the essence of the podcast,  
+    4. A detailed scene inspired by the podcast's content, 
+    5. A visually striking concept related to the podcast,
+    6. A unique image idea that reflects the podcast's theme,  
+    7. A creative and engaging scene based on the podcast's topic,  
+    8. A visually appealing representation of the podcast's main idea,  
+    9. A detailed and dynamic image concept inspired by the podcast,  
+    10. A visually captivating scene related to the podcast's theme.
+    Generate a list of 10 detailed image prompts based on the following podcast topic:

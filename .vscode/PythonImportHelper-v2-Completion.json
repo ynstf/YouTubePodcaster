@@ -69,6 +69,15 @@
         "documentation": {}
     },
     {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
         "label": "json",
         "kind": 6,
         "isExtraImport": true,
@@ -111,12 +120,12 @@
         "documentation": {}
     },
     {
-        "label": "time",
+        "label": "os",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "time",
-        "description": "time",
-        "detail": "time",
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
         "documentation": {}
     },
     {
@@ -137,15 +146,6 @@
         "documentation": {}
     },
     {
-        "label": "os",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "os",
-        "description": "os",
-        "detail": "os",
-        "documentation": {}
-    },
-    {
         "label": "create_content",
         "importPath": "REDDIT.GENERATE_REDDIT",
         "description": "REDDIT.GENERATE_REDDIT",
@@ -155,6 +155,14 @@
     },
     {
         "label": "create_conversation",
+        "importPath": "LLM.GENERATE_PODCUST",
+        "description": "LLM.GENERATE_PODCUST",
+        "isExtraImport": true,
+        "detail": "LLM.GENERATE_PODCUST",
+        "documentation": {}
+    },
+    {
+        "label": "send_prompt",
         "importPath": "LLM.GENERATE_PODCUST",
         "description": "LLM.GENERATE_PODCUST",
         "isExtraImport": true,
@@ -186,30 +194,6 @@
         "documentation": {}
     },
     {
-        "label": "conversation_list",
-        "importPath": "main",
-        "description": "main",
-        "isExtraImport": true,
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "MUSIC_API_URL",
-        "importPath": "main",
-        "description": "main",
-        "isExtraImport": true,
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "path_music",
-        "importPath": "main",
-        "description": "main",
-        "isExtraImport": true,
-        "detail": "main",
-        "documentation": {}
-    },
-    {
         "label": "generate_music",
         "importPath": "MUSIC.GENERATE_MUSIC",
         "description": "MUSIC.GENERATE_MUSIC",
@@ -223,6 +207,40 @@
         "description": "MUSIC.FIX_MUSIC",
         "isExtraImport": true,
         "detail": "MUSIC.FIX_MUSIC",
+        "documentation": {}
+    },
+    {
+        "label": "create_images_prompts",
+        "importPath": "IMAGE.GENERATE_IMAGES",
+        "description": "IMAGE.GENERATE_IMAGES",
+        "isExtraImport": true,
+        "detail": "IMAGE.GENERATE_IMAGES",
+        "documentation": {}
+    },
+    {
+        "label": "create_images",
+        "importPath": "IMAGE.GENERATE_IMAGES",
+        "description": "IMAGE.GENERATE_IMAGES",
+        "isExtraImport": true,
+        "detail": "IMAGE.GENERATE_IMAGES",
+        "documentation": {}
+    },
+    {
+        "label": "scipy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "scipy",
+        "description": "scipy",
+        "detail": "scipy",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
         "documentation": {}
     },
     {
@@ -248,7 +266,7 @@
         "kind": 2,
         "importPath": "AUDIO.GENERATE_AUDIO",
         "description": "AUDIO.GENERATE_AUDIO",
-        "peekOfCode": "def save_files(audio_segments):\n    audio_paths = []\n    for i, segment in enumerate(audio_segments):\n        with open(f\"podcast/segment_{i}.mp3\", \"wb\") as f:\n            f.write(segment)\n        print(f\"Saved pudcast/segment_{i}.mp3\")\n        audio_paths.append(f\"podcast/segment_{i}.mp3\")\n    return audio_paths\n# Create all audios\ndef create_audios(proxies,VOICE_ID_MAN,VOICE_ID_WOMAN):",
+        "peekOfCode": "def save_files(audio_segments):\n    audio_paths = []\n    for i, segment in enumerate(audio_segments):\n        with open(f\"podcast/segment_{i}.mp3\", \"wb\") as f:\n            f.write(segment)\n        print(f\"Saved pudcast/segment_{i}.mp3\")\n        audio_paths.append(f\"podcast/segment_{i}.mp3\")\n    return audio_paths\n# Create all audios\ndef create_audios(conversation_list,proxies,VOICE_ID_MAN,VOICE_ID_WOMAN):",
         "detail": "AUDIO.GENERATE_AUDIO",
         "documentation": {}
     },
@@ -257,7 +275,7 @@
         "kind": 2,
         "importPath": "AUDIO.GENERATE_AUDIO",
         "description": "AUDIO.GENERATE_AUDIO",
-        "peekOfCode": "def create_audios(proxies,VOICE_ID_MAN,VOICE_ID_WOMAN):\n    # Generate audio for each chunk and combine\n    audio_segments = []\n    for i, turn in enumerate(conversation_list):\n        role = turn[\"role\"]\n        text = turn[\"text\"]\n        text = make_shorter(text)\n        #voice_id = VOICE_ID_MAN if role == \"Man\" else VOICE_ID_WOMAN\n        voice_id = VOICE_ID_MAN if i % 2 == 0 else VOICE_ID_WOMAN\n        print(f\"Generating audio for {role} : {voice_id} (turn {i + 1})...\")",
+        "peekOfCode": "def create_audios(conversation_list,proxies,VOICE_ID_MAN,VOICE_ID_WOMAN):\n    # Generate audio for each chunk and combine\n    audio_segments = []\n    for i, turn in enumerate(conversation_list):\n        role = turn[\"role\"]\n        text = turn[\"text\"]\n        text = make_shorter(text)\n        #voice_id = VOICE_ID_MAN if role == \"Man\" else VOICE_ID_WOMAN\n        voice_id = VOICE_ID_MAN if i % 2 == 0 else VOICE_ID_WOMAN\n        print(f\"Generating audio for {role} : {voice_id} (turn {i + 1})...\")",
         "detail": "AUDIO.GENERATE_AUDIO",
         "documentation": {}
     },
@@ -266,7 +284,7 @@
         "kind": 2,
         "importPath": "AUDIO.GENERATE_AUDIO",
         "description": "AUDIO.GENERATE_AUDIO",
-        "peekOfCode": "def create_one_audio(audios_list,OUTPUT_FILE):\n    # Load and combine all audio files\n    combined = []\n    for file in audios_list:\n        y, sr = librosa.load(file)\n        combined.append(y)\n    # Concatenate all audio segments\n    final_audio = np.concatenate(combined)\n    # Save the combined audio\n    sf.write(f'podcast/{OUTPUT_FILE}', final_audio, sr)",
+        "peekOfCode": "def create_one_audio(audios_list,OUTPUT_FILE):\n    # Load and combine all audio files\n    combined = []\n    for file in audios_list:\n        y, sr = librosa.load(file)\n        combined.append(y)\n    # Concatenate all audio segments\n    final_audio = np.concatenate(combined)\n    # Save the combined audio\n    sf.write(OUTPUT_FILE, final_audio, sr)",
         "detail": "AUDIO.GENERATE_AUDIO",
         "documentation": {}
     },
@@ -275,8 +293,35 @@
         "kind": 2,
         "importPath": "AUDIO.GENERATE_AUDIO",
         "description": "AUDIO.GENERATE_AUDIO",
-        "peekOfCode": "def mix_podcust_audio(path_podcust_audio,path_fixed):\n    # Load the podcast audio (MP3)\n    podcast = AudioFileClip(path_podcust_audio)\n    print(\"Podcast duration:\", podcast.duration)\n    # Load the background music (WAV or MP3)\n    music = AudioFileClip(path_fixed)\n    print(\"Music duration:\", music.duration)\n    # Adjust the volume of the background music (optional)\n    music = music.volumex(0.4)  # Reduce volume by 50%\n    # Ensure the music is the same length as the podcast",
+        "peekOfCode": "def mix_podcust_audio(path_podcust_audio,path_fixed):\n    path_mixed = \"podcast/mixed_podcast.mp3\"\n    # Load the podcast audio (MP3)\n    podcast = AudioFileClip(path_podcust_audio)\n    print(\"Podcast duration:\", podcast.duration)\n    # Load the background music (WAV or MP3)\n    music = AudioFileClip(path_fixed)\n    print(\"Music duration:\", music.duration)\n    # Adjust the volume of the background music (optional)\n    music = music.volumex(0.5)  # Reduce volume by 50%",
         "detail": "AUDIO.GENERATE_AUDIO",
+        "documentation": {}
+    },
+    {
+        "label": "create_images_prompts",
+        "kind": 2,
+        "importPath": "IMAGE.GENERATE_IMAGES",
+        "description": "IMAGE.GENERATE_IMAGES",
+        "peekOfCode": "def create_images_prompts(res):\n    # Split the input text into individual prompts\n    prompts_list = [line.strip() for line in res.split(\"\\n\") if line.strip()]\n    # Remove the numbering (e.g., \"1. \", \"2. \") from each prompt\n    prompts_list = [prompt.split(\". \", 1)[1] for prompt in prompts_list]\n    # Output the list of prompts\n    print(prompts_list)\n    return prompts_list\ndef query(API_URL,payload, headers, retries=3, delay=10):\n    for i in range(retries):",
+        "detail": "IMAGE.GENERATE_IMAGES",
+        "documentation": {}
+    },
+    {
+        "label": "query",
+        "kind": 2,
+        "importPath": "IMAGE.GENERATE_IMAGES",
+        "description": "IMAGE.GENERATE_IMAGES",
+        "peekOfCode": "def query(API_URL,payload, headers, retries=3, delay=10):\n    for i in range(retries):\n        try:\n            response = requests.post(API_URL, headers=headers, json=payload, timeout=300)\n            if response.status_code == 200:\n                return response.content\n            else:\n                print(f\"Attempt {i + 1} failed: {response.text}\")\n                if \"estimated_time\" in response.text:\n                    # Wait for the model to load",
+        "detail": "IMAGE.GENERATE_IMAGES",
+        "documentation": {}
+    },
+    {
+        "label": "create_images",
+        "kind": 2,
+        "importPath": "IMAGE.GENERATE_IMAGES",
+        "description": "IMAGE.GENERATE_IMAGES",
+        "peekOfCode": "def create_images(prompts_list,IMAGE_API_URLS,HUGGING_FACE_TOKEN):\n    headers = {\"Authorization\": f\"Bearer {HUGGING_FACE_TOKEN}\"}\n    # Hugging Face API endpoints for the models\n    API_URLS = [\n        \"https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-dev\",\n        \"https://api-inference.huggingface.co/models/ZB-Tech/Text-to-Image\",\n        \"https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-2\",\n    ]\n    # Generate an images\n    i=0",
+        "detail": "IMAGE.GENERATE_IMAGES",
         "documentation": {}
     },
     {
@@ -320,17 +365,8 @@
         "kind": 2,
         "importPath": "MUSIC.FIX_MUSIC",
         "description": "MUSIC.FIX_MUSIC",
-        "peekOfCode": "def fix_music(path_music):\n    # Input and output file paths\n    input_file = \"podcust/background.mp3\"\n    output_file = \"podcust/background_fixed.mp3\"\n    # Step 1: Convert the audio file using FFmpeg\n    ffmpeg_command = [\n        \"ffmpeg\",\n        \"-i\", input_file,          # Input file\n        \"-c:a\", \"libmp3lame\",      # Audio codec (MP3)\n        \"-q:a\", \"2\",               # Audio quality",
+        "peekOfCode": "def fix_music():\n    # Input and output file paths\n    input_file = \"podcast/background.mp3\"\n    output_file = \"podcast/background_fixed.mp3\"\n    # Step 1: Convert the audio file using FFmpeg\n    ffmpeg_command = [\n        \"ffmpeg\",\n        \"-i\", input_file,          # Input file\n        \"-c:a\", \"libmp3lame\",      # Audio codec (MP3)\n        \"-q:a\", \"2\",               # Audio quality",
         "detail": "MUSIC.FIX_MUSIC",
-        "documentation": {}
-    },
-    {
-        "label": "generate_music_prompt",
-        "kind": 2,
-        "importPath": "MUSIC.GENERATE_MUSIC",
-        "description": "MUSIC.GENERATE_MUSIC",
-        "peekOfCode": "def generate_music_prompt(prompt,podcust):\n    prompt_total = prompt + podcust\n    return send_prompt(prompt_total)\ndef generate_music(prompt,podcust,HUGGING_FACE_TOKEN,API_URL):\n    # Your Hugging Face API token\n    headers = {\n        \"Authorization\": f\"Bearer {HUGGING_FACE_TOKEN}\",\n        \"Content-Type\": \"application/json\"\n    }\n    # Payload with the prompt",
-        "detail": "MUSIC.GENERATE_MUSIC",
         "documentation": {}
     },
     {
@@ -338,7 +374,7 @@
         "kind": 2,
         "importPath": "MUSIC.GENERATE_MUSIC",
         "description": "MUSIC.GENERATE_MUSIC",
-        "peekOfCode": "def generate_music(prompt,podcust,HUGGING_FACE_TOKEN,API_URL):\n    # Your Hugging Face API token\n    headers = {\n        \"Authorization\": f\"Bearer {HUGGING_FACE_TOKEN}\",\n        \"Content-Type\": \"application/json\"\n    }\n    # Payload with the prompt\n    payload = {\n        \"inputs\": prompt\n    }",
+        "peekOfCode": "def generate_music(prompt,podcust,HUGGING_FACE_TOKEN,API_URL,file_path):\n    # Your Hugging Face API token\n    headers = {\n        \"Authorization\": f\"Bearer {HUGGING_FACE_TOKEN}\",\n        \"Content-Type\": \"application/json\"\n    }\n    # Payload with the prompt\n    payload = {\n        \"inputs\": prompt\n    }",
         "detail": "MUSIC.GENERATE_MUSIC",
         "documentation": {}
     },
@@ -383,7 +419,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "CLIENT_ID = os.getenv(\"CLIENT_ID\")\nCLIENT_SECRET = os.getenv(\"CLIENT_SECRET\")\nUSER_AGENT = os.getenv(\"USER_AGENT\")\n# Example usage\nprint(f\"Client ID: {CLIENT_ID}\")\nprint(f\"Client Secret: {CLIENT_SECRET}\")\nprint(f\"User Agent: {USER_AGENT}\")\n# Create text from reddit\ntext = create_content(CLIENT_ID,CLIENT_SECRET,USER_AGENT)\nprint(\"text from reddit created\")",
+        "peekOfCode": "CLIENT_ID = os.getenv(\"CLIENT_ID\")\nCLIENT_SECRET = os.getenv(\"CLIENT_SECRET\")\nUSER_AGENT = os.getenv(\"USER_AGENT\")\n# Example usage\nprint(f\"Client ID: {CLIENT_ID}\")\nprint(f\"Client Secret: {CLIENT_SECRET}\")\nprint(f\"User Agent: {USER_AGENT}\")\n# Create text from reddit\n#text = create_content(CLIENT_ID,CLIENT_SECRET,USER_AGENT)\nprint(\"text from reddit created\")",
         "detail": "main",
         "documentation": {}
     },
@@ -392,7 +428,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "CLIENT_SECRET = os.getenv(\"CLIENT_SECRET\")\nUSER_AGENT = os.getenv(\"USER_AGENT\")\n# Example usage\nprint(f\"Client ID: {CLIENT_ID}\")\nprint(f\"Client Secret: {CLIENT_SECRET}\")\nprint(f\"User Agent: {USER_AGENT}\")\n# Create text from reddit\ntext = create_content(CLIENT_ID,CLIENT_SECRET,USER_AGENT)\nprint(\"text from reddit created\")\n# Access the variables",
+        "peekOfCode": "CLIENT_SECRET = os.getenv(\"CLIENT_SECRET\")\nUSER_AGENT = os.getenv(\"USER_AGENT\")\n# Example usage\nprint(f\"Client ID: {CLIENT_ID}\")\nprint(f\"Client Secret: {CLIENT_SECRET}\")\nprint(f\"User Agent: {USER_AGENT}\")\n# Create text from reddit\n#text = create_content(CLIENT_ID,CLIENT_SECRET,USER_AGENT)\nprint(\"text from reddit created\")\n# Access the variables",
         "detail": "main",
         "documentation": {}
     },
@@ -401,16 +437,16 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "USER_AGENT = os.getenv(\"USER_AGENT\")\n# Example usage\nprint(f\"Client ID: {CLIENT_ID}\")\nprint(f\"Client Secret: {CLIENT_SECRET}\")\nprint(f\"User Agent: {USER_AGENT}\")\n# Create text from reddit\ntext = create_content(CLIENT_ID,CLIENT_SECRET,USER_AGENT)\nprint(\"text from reddit created\")\n# Access the variables\nOPENROUTER_API_KEY = os.getenv(\"OPENROUTER_API_KEY\")",
+        "peekOfCode": "USER_AGENT = os.getenv(\"USER_AGENT\")\n# Example usage\nprint(f\"Client ID: {CLIENT_ID}\")\nprint(f\"Client Secret: {CLIENT_SECRET}\")\nprint(f\"User Agent: {USER_AGENT}\")\n# Create text from reddit\n#text = create_content(CLIENT_ID,CLIENT_SECRET,USER_AGENT)\nprint(\"text from reddit created\")\n# Access the variables\nOPENROUTER_API_KEY = os.getenv(\"OPENROUTER_API_KEY\")",
         "detail": "main",
         "documentation": {}
     },
     {
-        "label": "text",
+        "label": "#text",
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "text = create_content(CLIENT_ID,CLIENT_SECRET,USER_AGENT)\nprint(\"text from reddit created\")\n# Access the variables\nOPENROUTER_API_KEY = os.getenv(\"OPENROUTER_API_KEY\")\nOPENROUTER_API_URL = os.getenv(\"OPENROUTER_API_URL\")\nMODEL = os.getenv(\"MODEL\")\nconversation_prompt = open(\"PROMPTS/conversation_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\n# Create the conversation\nconversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"conversation created by llm\")",
+        "peekOfCode": "#text = create_content(CLIENT_ID,CLIENT_SECRET,USER_AGENT)\nprint(\"text from reddit created\")\n# Access the variables\nOPENROUTER_API_KEY = os.getenv(\"OPENROUTER_API_KEY\")\nOPENROUTER_API_URL = os.getenv(\"OPENROUTER_API_URL\")\nMODEL = os.getenv(\"MODEL\")\nconversation_prompt = open(\"PROMPTS/conversation_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\n# Create the conversation\n#conversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"conversation created by llm\")",
         "detail": "main",
         "documentation": {}
     },
@@ -419,7 +455,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "OPENROUTER_API_KEY = os.getenv(\"OPENROUTER_API_KEY\")\nOPENROUTER_API_URL = os.getenv(\"OPENROUTER_API_URL\")\nMODEL = os.getenv(\"MODEL\")\nconversation_prompt = open(\"PROMPTS/conversation_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\n# Create the conversation\nconversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"conversation created by llm\")\n# Access the variables\nVOICE_ID_MAN = os.getenv(\"VOICE_ID_MAN\")\nVOICE_ID_WOMAN = os.getenv(\"VOICE_ID_WOMAN\")",
+        "peekOfCode": "OPENROUTER_API_KEY = os.getenv(\"OPENROUTER_API_KEY\")\nOPENROUTER_API_URL = os.getenv(\"OPENROUTER_API_URL\")\nMODEL = os.getenv(\"MODEL\")\nconversation_prompt = open(\"PROMPTS/conversation_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\n# Create the conversation\n#conversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"conversation created by llm\")\nprint(\"START !!!!!!!!!!!!!!!!!!!!!!!!!!\")\nconversation_list = [{'role': 'Man',\n  'text': \"<speak><prosody rate='slow'>مرحبًا بالجميع،</prosody> <break time='1s'/> اليوم سنتحدث عن شيء مثير للاهتمام. <break time='1s'/> أنا محمد، مؤثر في مجال النشر الرقمي والسياسي. بالنسبة لي، هذا الموضوع يعني تغيرات هائلة في السياسة والمجتمع الأمريكي. ماذا يعني لكِ، آمنة؟</speak>\"},",
         "detail": "main",
         "documentation": {}
     },
@@ -428,7 +464,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "OPENROUTER_API_URL = os.getenv(\"OPENROUTER_API_URL\")\nMODEL = os.getenv(\"MODEL\")\nconversation_prompt = open(\"PROMPTS/conversation_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\n# Create the conversation\nconversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"conversation created by llm\")\n# Access the variables\nVOICE_ID_MAN = os.getenv(\"VOICE_ID_MAN\")\nVOICE_ID_WOMAN = os.getenv(\"VOICE_ID_WOMAN\")\nAUDIO_OUTPUT_FILE = os.getenv(\"AUDIO_OUTPUT_FILE\")",
+        "peekOfCode": "OPENROUTER_API_URL = os.getenv(\"OPENROUTER_API_URL\")\nMODEL = os.getenv(\"MODEL\")\nconversation_prompt = open(\"PROMPTS/conversation_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\n# Create the conversation\n#conversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"conversation created by llm\")\nprint(\"START !!!!!!!!!!!!!!!!!!!!!!!!!!\")\nconversation_list = [{'role': 'Man',\n  'text': \"<speak><prosody rate='slow'>مرحبًا بالجميع،</prosody> <break time='1s'/> اليوم سنتحدث عن شيء مثير للاهتمام. <break time='1s'/> أنا محمد، مؤثر في مجال النشر الرقمي والسياسي. بالنسبة لي، هذا الموضوع يعني تغيرات هائلة في السياسة والمجتمع الأمريكي. ماذا يعني لكِ، آمنة؟</speak>\"},\n]",
         "detail": "main",
         "documentation": {}
     },
@@ -437,7 +473,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "MODEL = os.getenv(\"MODEL\")\nconversation_prompt = open(\"PROMPTS/conversation_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\n# Create the conversation\nconversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"conversation created by llm\")\n# Access the variables\nVOICE_ID_MAN = os.getenv(\"VOICE_ID_MAN\")\nVOICE_ID_WOMAN = os.getenv(\"VOICE_ID_WOMAN\")\nAUDIO_OUTPUT_FILE = os.getenv(\"AUDIO_OUTPUT_FILE\")\n# Load the proxies from the JSON file",
+        "peekOfCode": "MODEL = os.getenv(\"MODEL\")\nconversation_prompt = open(\"PROMPTS/conversation_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\n# Create the conversation\n#conversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"conversation created by llm\")\nprint(\"START !!!!!!!!!!!!!!!!!!!!!!!!!!\")\nconversation_list = [{'role': 'Man',\n  'text': \"<speak><prosody rate='slow'>مرحبًا بالجميع،</prosody> <break time='1s'/> اليوم سنتحدث عن شيء مثير للاهتمام. <break time='1s'/> أنا محمد، مؤثر في مجال النشر الرقمي والسياسي. بالنسبة لي، هذا الموضوع يعني تغيرات هائلة في السياسة والمجتمع الأمريكي. ماذا يعني لكِ، آمنة؟</speak>\"},\n]\n# Access the variables",
         "detail": "main",
         "documentation": {}
     },
@@ -446,7 +482,16 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "conversation_prompt = open(\"PROMPTS/conversation_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\n# Create the conversation\nconversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"conversation created by llm\")\n# Access the variables\nVOICE_ID_MAN = os.getenv(\"VOICE_ID_MAN\")\nVOICE_ID_WOMAN = os.getenv(\"VOICE_ID_WOMAN\")\nAUDIO_OUTPUT_FILE = os.getenv(\"AUDIO_OUTPUT_FILE\")\n# Load the proxies from the JSON file\nwith open(\"proxies.json\", \"r\") as file:",
+        "peekOfCode": "conversation_prompt = open(\"PROMPTS/conversation_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\n# Create the conversation\n#conversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"conversation created by llm\")\nprint(\"START !!!!!!!!!!!!!!!!!!!!!!!!!!\")\nconversation_list = [{'role': 'Man',\n  'text': \"<speak><prosody rate='slow'>مرحبًا بالجميع،</prosody> <break time='1s'/> اليوم سنتحدث عن شيء مثير للاهتمام. <break time='1s'/> أنا محمد، مؤثر في مجال النشر الرقمي والسياسي. بالنسبة لي، هذا الموضوع يعني تغيرات هائلة في السياسة والمجتمع الأمريكي. ماذا يعني لكِ، آمنة؟</speak>\"},\n]\n# Access the variables\nVOICE_ID_MAN = os.getenv(\"VOICE_ID_MAN\")",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "#conversation_list",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "#conversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"conversation created by llm\")\nprint(\"START !!!!!!!!!!!!!!!!!!!!!!!!!!\")\nconversation_list = [{'role': 'Man',\n  'text': \"<speak><prosody rate='slow'>مرحبًا بالجميع،</prosody> <break time='1s'/> اليوم سنتحدث عن شيء مثير للاهتمام. <break time='1s'/> أنا محمد، مؤثر في مجال النشر الرقمي والسياسي. بالنسبة لي، هذا الموضوع يعني تغيرات هائلة في السياسة والمجتمع الأمريكي. ماذا يعني لكِ، آمنة؟</speak>\"},\n]\n# Access the variables\nVOICE_ID_MAN = os.getenv(\"VOICE_ID_MAN\")\nVOICE_ID_WOMAN = os.getenv(\"VOICE_ID_WOMAN\")\nAUDIO_OUTPUT_FILE = os.getenv(\"AUDIO_OUTPUT_FILE\")",
         "detail": "main",
         "documentation": {}
     },
@@ -455,7 +500,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "conversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"conversation created by llm\")\n# Access the variables\nVOICE_ID_MAN = os.getenv(\"VOICE_ID_MAN\")\nVOICE_ID_WOMAN = os.getenv(\"VOICE_ID_WOMAN\")\nAUDIO_OUTPUT_FILE = os.getenv(\"AUDIO_OUTPUT_FILE\")\n# Load the proxies from the JSON file\nwith open(\"proxies.json\", \"r\") as file:\n    proxies = json.load(file)\n# create podcust audio",
+        "peekOfCode": "conversation_list = [{'role': 'Man',\n  'text': \"<speak><prosody rate='slow'>مرحبًا بالجميع،</prosody> <break time='1s'/> اليوم سنتحدث عن شيء مثير للاهتمام. <break time='1s'/> أنا محمد، مؤثر في مجال النشر الرقمي والسياسي. بالنسبة لي، هذا الموضوع يعني تغيرات هائلة في السياسة والمجتمع الأمريكي. ماذا يعني لكِ، آمنة؟</speak>\"},\n]\n# Access the variables\nVOICE_ID_MAN = os.getenv(\"VOICE_ID_MAN\")\nVOICE_ID_WOMAN = os.getenv(\"VOICE_ID_WOMAN\")\nAUDIO_OUTPUT_FILE = os.getenv(\"AUDIO_OUTPUT_FILE\")\n# Load the proxies from the JSON file\nwith open(\"proxies.json\", \"r\") as file:\n    proxies = json.load(file)",
         "detail": "main",
         "documentation": {}
     },
@@ -464,7 +509,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "VOICE_ID_MAN = os.getenv(\"VOICE_ID_MAN\")\nVOICE_ID_WOMAN = os.getenv(\"VOICE_ID_WOMAN\")\nAUDIO_OUTPUT_FILE = os.getenv(\"AUDIO_OUTPUT_FILE\")\n# Load the proxies from the JSON file\nwith open(\"proxies.json\", \"r\") as file:\n    proxies = json.load(file)\n# create podcust audio\naudios_list = create_audios(proxies,VOICE_ID_MAN,VOICE_ID_WOMAN)\npath_podcust_audio = create_one_audio(audios_list,AUDIO_OUTPUT_FILE)\n# create music background",
+        "peekOfCode": "VOICE_ID_MAN = os.getenv(\"VOICE_ID_MAN\")\nVOICE_ID_WOMAN = os.getenv(\"VOICE_ID_WOMAN\")\nAUDIO_OUTPUT_FILE = os.getenv(\"AUDIO_OUTPUT_FILE\")\n# Load the proxies from the JSON file\nwith open(\"proxies.json\", \"r\") as file:\n    proxies = json.load(file)\n# create podcust audio\n#audios_list = create_audios(conversation_list,proxies,VOICE_ID_MAN,VOICE_ID_WOMAN)\naudios_list = [\"podcast/segment_0.mp3\",\"podcast/segment_1.mp3\",\"podcast/segment_2.mp3\"]\npath_podcust_audio = \"podcast/podcast_final.mp3\"",
         "detail": "main",
         "documentation": {}
     },
@@ -473,7 +518,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "VOICE_ID_WOMAN = os.getenv(\"VOICE_ID_WOMAN\")\nAUDIO_OUTPUT_FILE = os.getenv(\"AUDIO_OUTPUT_FILE\")\n# Load the proxies from the JSON file\nwith open(\"proxies.json\", \"r\") as file:\n    proxies = json.load(file)\n# create podcust audio\naudios_list = create_audios(proxies,VOICE_ID_MAN,VOICE_ID_WOMAN)\npath_podcust_audio = create_one_audio(audios_list,AUDIO_OUTPUT_FILE)\n# create music background\nHUGGING_FACE_TOKEN = os.getenv(\"HUGGING_FACE_TOKEN\")",
+        "peekOfCode": "VOICE_ID_WOMAN = os.getenv(\"VOICE_ID_WOMAN\")\nAUDIO_OUTPUT_FILE = os.getenv(\"AUDIO_OUTPUT_FILE\")\n# Load the proxies from the JSON file\nwith open(\"proxies.json\", \"r\") as file:\n    proxies = json.load(file)\n# create podcust audio\n#audios_list = create_audios(conversation_list,proxies,VOICE_ID_MAN,VOICE_ID_WOMAN)\naudios_list = [\"podcast/segment_0.mp3\",\"podcast/segment_1.mp3\",\"podcast/segment_2.mp3\"]\npath_podcust_audio = \"podcast/podcast_final.mp3\"\nprint(\"audios_list\",audios_list)",
         "detail": "main",
         "documentation": {}
     },
@@ -482,7 +527,16 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "AUDIO_OUTPUT_FILE = os.getenv(\"AUDIO_OUTPUT_FILE\")\n# Load the proxies from the JSON file\nwith open(\"proxies.json\", \"r\") as file:\n    proxies = json.load(file)\n# create podcust audio\naudios_list = create_audios(proxies,VOICE_ID_MAN,VOICE_ID_WOMAN)\npath_podcust_audio = create_one_audio(audios_list,AUDIO_OUTPUT_FILE)\n# create music background\nHUGGING_FACE_TOKEN = os.getenv(\"HUGGING_FACE_TOKEN\")\nMUSIC_API_URL = os.getenv(\"MUSIC_API_URL\")",
+        "peekOfCode": "AUDIO_OUTPUT_FILE = os.getenv(\"AUDIO_OUTPUT_FILE\")\n# Load the proxies from the JSON file\nwith open(\"proxies.json\", \"r\") as file:\n    proxies = json.load(file)\n# create podcust audio\n#audios_list = create_audios(conversation_list,proxies,VOICE_ID_MAN,VOICE_ID_WOMAN)\naudios_list = [\"podcast/segment_0.mp3\",\"podcast/segment_1.mp3\",\"podcast/segment_2.mp3\"]\npath_podcust_audio = \"podcast/podcast_final.mp3\"\nprint(\"audios_list\",audios_list)\n#path_podcust_audio = create_one_audio(audios_list,AUDIO_OUTPUT_FILE)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "#audios_list",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "#audios_list = create_audios(conversation_list,proxies,VOICE_ID_MAN,VOICE_ID_WOMAN)\naudios_list = [\"podcast/segment_0.mp3\",\"podcast/segment_1.mp3\",\"podcast/segment_2.mp3\"]\npath_podcust_audio = \"podcast/podcast_final.mp3\"\nprint(\"audios_list\",audios_list)\n#path_podcust_audio = create_one_audio(audios_list,AUDIO_OUTPUT_FILE)\nprint(\"audios_list\",audios_list)\nprint(\"path_podcust_audio\",path_podcust_audio)\n# create music background\nHUGGING_FACE_TOKEN = os.getenv(\"HUGGING_FACE_TOKEN\")\nMUSIC_API_URL = os.getenv(\"MUSIC_API_URL\")",
         "detail": "main",
         "documentation": {}
     },
@@ -491,7 +545,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "audios_list = create_audios(proxies,VOICE_ID_MAN,VOICE_ID_WOMAN)\npath_podcust_audio = create_one_audio(audios_list,AUDIO_OUTPUT_FILE)\n# create music background\nHUGGING_FACE_TOKEN = os.getenv(\"HUGGING_FACE_TOKEN\")\nMUSIC_API_URL = os.getenv(\"MUSIC_API_URL\")\nmusic_prompt = open(\"PROMPTS/music_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nwith open(\"conversation.txt\", \"r\") as file:\n    conversationTXT = file.read()\npath_music = generate_music(music_prompt,\n                conversationTXT,",
+        "peekOfCode": "audios_list = [\"podcast/segment_0.mp3\",\"podcast/segment_1.mp3\",\"podcast/segment_2.mp3\"]\npath_podcust_audio = \"podcast/podcast_final.mp3\"\nprint(\"audios_list\",audios_list)\n#path_podcust_audio = create_one_audio(audios_list,AUDIO_OUTPUT_FILE)\nprint(\"audios_list\",audios_list)\nprint(\"path_podcust_audio\",path_podcust_audio)\n# create music background\nHUGGING_FACE_TOKEN = os.getenv(\"HUGGING_FACE_TOKEN\")\nMUSIC_API_URL = os.getenv(\"MUSIC_API_URL\")\nllm_music_prompt = open(\"PROMPTS/music_prompt.txt\", \"r\", encoding =\"UTF-8\").read()",
         "detail": "main",
         "documentation": {}
     },
@@ -500,7 +554,16 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "path_podcust_audio = create_one_audio(audios_list,AUDIO_OUTPUT_FILE)\n# create music background\nHUGGING_FACE_TOKEN = os.getenv(\"HUGGING_FACE_TOKEN\")\nMUSIC_API_URL = os.getenv(\"MUSIC_API_URL\")\nmusic_prompt = open(\"PROMPTS/music_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nwith open(\"conversation.txt\", \"r\") as file:\n    conversationTXT = file.read()\npath_music = generate_music(music_prompt,\n                conversationTXT,\n                HUGGING_FACE_TOKEN,",
+        "peekOfCode": "path_podcust_audio = \"podcast/podcast_final.mp3\"\nprint(\"audios_list\",audios_list)\n#path_podcust_audio = create_one_audio(audios_list,AUDIO_OUTPUT_FILE)\nprint(\"audios_list\",audios_list)\nprint(\"path_podcust_audio\",path_podcust_audio)\n# create music background\nHUGGING_FACE_TOKEN = os.getenv(\"HUGGING_FACE_TOKEN\")\nMUSIC_API_URL = os.getenv(\"MUSIC_API_URL\")\nllm_music_prompt = open(\"PROMPTS/music_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nconversation = open(\"conversation.txt\", \"r\", encoding =\"UTF-8\").read()",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "#path_podcust_audio",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "#path_podcust_audio = create_one_audio(audios_list,AUDIO_OUTPUT_FILE)\nprint(\"audios_list\",audios_list)\nprint(\"path_podcust_audio\",path_podcust_audio)\n# create music background\nHUGGING_FACE_TOKEN = os.getenv(\"HUGGING_FACE_TOKEN\")\nMUSIC_API_URL = os.getenv(\"MUSIC_API_URL\")\nllm_music_prompt = open(\"PROMPTS/music_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nconversation = open(\"conversation.txt\", \"r\", encoding =\"UTF-8\").read()\n#music_prompt = send_prompt(llm_music_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nmusic_prompt = \"Create a calm song about a podcast discussing political and social awareness, featuring instruments such as acoustic guitar, soft piano, and gentle strings. The tempo should be slow and soothing, setting a relaxed atmosphere for reflection on the podcast's dialogue between Mohamed and Amina. Capture the essence of their thoughtful conversation on the importance of political participation and social impact. Feel free to incorporate Arabic influences in the melody to reflect the cultural exchange in the podcast. Let the music evoke a sense of introspection and contemplation as listeners engage with the podcast's thought-provoking themes.\"",
         "detail": "main",
         "documentation": {}
     },
@@ -509,7 +572,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "HUGGING_FACE_TOKEN = os.getenv(\"HUGGING_FACE_TOKEN\")\nMUSIC_API_URL = os.getenv(\"MUSIC_API_URL\")\nmusic_prompt = open(\"PROMPTS/music_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nwith open(\"conversation.txt\", \"r\") as file:\n    conversationTXT = file.read()\npath_music = generate_music(music_prompt,\n                conversationTXT,\n                HUGGING_FACE_TOKEN,\n                MUSIC_API_URL)\n# fix music (adding metadata)",
+        "peekOfCode": "HUGGING_FACE_TOKEN = os.getenv(\"HUGGING_FACE_TOKEN\")\nMUSIC_API_URL = os.getenv(\"MUSIC_API_URL\")\nllm_music_prompt = open(\"PROMPTS/music_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nconversation = open(\"conversation.txt\", \"r\", encoding =\"UTF-8\").read()\n#music_prompt = send_prompt(llm_music_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nmusic_prompt = \"Create a calm song about a podcast discussing political and social awareness, featuring instruments such as acoustic guitar, soft piano, and gentle strings. The tempo should be slow and soothing, setting a relaxed atmosphere for reflection on the podcast's dialogue between Mohamed and Amina. Capture the essence of their thoughtful conversation on the importance of political participation and social impact. Feel free to incorporate Arabic influences in the melody to reflect the cultural exchange in the podcast. Let the music evoke a sense of introspection and contemplation as listeners engage with the podcast's thought-provoking themes.\"\nprint(\"music_prompt\",music_prompt)\n\"\"\"path_music = generate_music(music_prompt,\n                conversation,\n                HUGGING_FACE_TOKEN,",
         "detail": "main",
         "documentation": {}
     },
@@ -518,7 +581,34 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "MUSIC_API_URL = os.getenv(\"MUSIC_API_URL\")\nmusic_prompt = open(\"PROMPTS/music_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nwith open(\"conversation.txt\", \"r\") as file:\n    conversationTXT = file.read()\npath_music = generate_music(music_prompt,\n                conversationTXT,\n                HUGGING_FACE_TOKEN,\n                MUSIC_API_URL)\n# fix music (adding metadata)\npath_fixed = fix_music(path_music)",
+        "peekOfCode": "MUSIC_API_URL = os.getenv(\"MUSIC_API_URL\")\nllm_music_prompt = open(\"PROMPTS/music_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nconversation = open(\"conversation.txt\", \"r\", encoding =\"UTF-8\").read()\n#music_prompt = send_prompt(llm_music_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nmusic_prompt = \"Create a calm song about a podcast discussing political and social awareness, featuring instruments such as acoustic guitar, soft piano, and gentle strings. The tempo should be slow and soothing, setting a relaxed atmosphere for reflection on the podcast's dialogue between Mohamed and Amina. Capture the essence of their thoughtful conversation on the importance of political participation and social impact. Feel free to incorporate Arabic influences in the melody to reflect the cultural exchange in the podcast. Let the music evoke a sense of introspection and contemplation as listeners engage with the podcast's thought-provoking themes.\"\nprint(\"music_prompt\",music_prompt)\n\"\"\"path_music = generate_music(music_prompt,\n                conversation,\n                HUGGING_FACE_TOKEN,\n                MUSIC_API_URL,",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "llm_music_prompt",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "llm_music_prompt = open(\"PROMPTS/music_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nconversation = open(\"conversation.txt\", \"r\", encoding =\"UTF-8\").read()\n#music_prompt = send_prompt(llm_music_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nmusic_prompt = \"Create a calm song about a podcast discussing political and social awareness, featuring instruments such as acoustic guitar, soft piano, and gentle strings. The tempo should be slow and soothing, setting a relaxed atmosphere for reflection on the podcast's dialogue between Mohamed and Amina. Capture the essence of their thoughtful conversation on the importance of political participation and social impact. Feel free to incorporate Arabic influences in the melody to reflect the cultural exchange in the podcast. Let the music evoke a sense of introspection and contemplation as listeners engage with the podcast's thought-provoking themes.\"\nprint(\"music_prompt\",music_prompt)\n\"\"\"path_music = generate_music(music_prompt,\n                conversation,\n                HUGGING_FACE_TOKEN,\n                MUSIC_API_URL,\n                \"podcast/background.mp3\")\"\"\"",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "conversation",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "conversation = open(\"conversation.txt\", \"r\", encoding =\"UTF-8\").read()\n#music_prompt = send_prompt(llm_music_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nmusic_prompt = \"Create a calm song about a podcast discussing political and social awareness, featuring instruments such as acoustic guitar, soft piano, and gentle strings. The tempo should be slow and soothing, setting a relaxed atmosphere for reflection on the podcast's dialogue between Mohamed and Amina. Capture the essence of their thoughtful conversation on the importance of political participation and social impact. Feel free to incorporate Arabic influences in the melody to reflect the cultural exchange in the podcast. Let the music evoke a sense of introspection and contemplation as listeners engage with the podcast's thought-provoking themes.\"\nprint(\"music_prompt\",music_prompt)\n\"\"\"path_music = generate_music(music_prompt,\n                conversation,\n                HUGGING_FACE_TOKEN,\n                MUSIC_API_URL,\n                \"podcast/background.mp3\")\"\"\"\n# fix music (adding metadata)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "#music_prompt",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "#music_prompt = send_prompt(llm_music_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nmusic_prompt = \"Create a calm song about a podcast discussing political and social awareness, featuring instruments such as acoustic guitar, soft piano, and gentle strings. The tempo should be slow and soothing, setting a relaxed atmosphere for reflection on the podcast's dialogue between Mohamed and Amina. Capture the essence of their thoughtful conversation on the importance of political participation and social impact. Feel free to incorporate Arabic influences in the melody to reflect the cultural exchange in the podcast. Let the music evoke a sense of introspection and contemplation as listeners engage with the podcast's thought-provoking themes.\"\nprint(\"music_prompt\",music_prompt)\n\"\"\"path_music = generate_music(music_prompt,\n                conversation,\n                HUGGING_FACE_TOKEN,\n                MUSIC_API_URL,\n                \"podcast/background.mp3\")\"\"\"\n# fix music (adding metadata)\nprint(\"FIXING BACKGROUND\")",
         "detail": "main",
         "documentation": {}
     },
@@ -527,16 +617,25 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "music_prompt = open(\"PROMPTS/music_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nwith open(\"conversation.txt\", \"r\") as file:\n    conversationTXT = file.read()\npath_music = generate_music(music_prompt,\n                conversationTXT,\n                HUGGING_FACE_TOKEN,\n                MUSIC_API_URL)\n# fix music (adding metadata)\npath_fixed = fix_music(path_music)\n# mix music with audio ",
+        "peekOfCode": "music_prompt = \"Create a calm song about a podcast discussing political and social awareness, featuring instruments such as acoustic guitar, soft piano, and gentle strings. The tempo should be slow and soothing, setting a relaxed atmosphere for reflection on the podcast's dialogue between Mohamed and Amina. Capture the essence of their thoughtful conversation on the importance of political participation and social impact. Feel free to incorporate Arabic influences in the melody to reflect the cultural exchange in the podcast. Let the music evoke a sense of introspection and contemplation as listeners engage with the podcast's thought-provoking themes.\"\nprint(\"music_prompt\",music_prompt)\n\"\"\"path_music = generate_music(music_prompt,\n                conversation,\n                HUGGING_FACE_TOKEN,\n                MUSIC_API_URL,\n                \"podcast/background.mp3\")\"\"\"\n# fix music (adding metadata)\nprint(\"FIXING BACKGROUND\")\n#path_fixed = fix_music()",
         "detail": "main",
         "documentation": {}
     },
     {
-        "label": "path_music",
+        "label": "\"\"\"path_music",
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "path_music = generate_music(music_prompt,\n                conversationTXT,\n                HUGGING_FACE_TOKEN,\n                MUSIC_API_URL)\n# fix music (adding metadata)\npath_fixed = fix_music(path_music)\n# mix music with audio \npath_mixed_audio = mix_podcust_audio(path_podcust_audio,path_fixed)",
+        "peekOfCode": "\"\"\"path_music = generate_music(music_prompt,\n                conversation,\n                HUGGING_FACE_TOKEN,\n                MUSIC_API_URL,\n                \"podcast/background.mp3\")\"\"\"\n# fix music (adding metadata)\nprint(\"FIXING BACKGROUND\")\n#path_fixed = fix_music()\n#print(path_fixed)\npath_fixed = \"podcast/background_fixed.mp3\"",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "#path_fixed",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "#path_fixed = fix_music()\n#print(path_fixed)\npath_fixed = \"podcast/background_fixed.mp3\"\n# mix music with audio \nprint(\"MIXING PODCUST\")\n#path_mixed_audio = mix_podcust_audio(path_podcust_audio,path_fixed)\n#print(path_mixed_audio)\n# generate images\n# Get the IMAGE_API_URLS from the .env file\nimage_api_urls_str = os.getenv(\"IMAGE_API_URLS\")",
         "detail": "main",
         "documentation": {}
     },
@@ -545,16 +644,88 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "path_fixed = fix_music(path_music)\n# mix music with audio \npath_mixed_audio = mix_podcust_audio(path_podcust_audio,path_fixed)",
+        "peekOfCode": "path_fixed = \"podcast/background_fixed.mp3\"\n# mix music with audio \nprint(\"MIXING PODCUST\")\n#path_mixed_audio = mix_podcust_audio(path_podcust_audio,path_fixed)\n#print(path_mixed_audio)\n# generate images\n# Get the IMAGE_API_URLS from the .env file\nimage_api_urls_str = os.getenv(\"IMAGE_API_URLS\")\n# Split the string into a list\nIMAGE_API_URLS = image_api_urls_str.split(\",\")",
         "detail": "main",
         "documentation": {}
     },
     {
-        "label": "path_mixed_audio",
+        "label": "#path_mixed_audio",
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "path_mixed_audio = mix_podcust_audio(path_podcust_audio,path_fixed)",
+        "peekOfCode": "#path_mixed_audio = mix_podcust_audio(path_podcust_audio,path_fixed)\n#print(path_mixed_audio)\n# generate images\n# Get the IMAGE_API_URLS from the .env file\nimage_api_urls_str = os.getenv(\"IMAGE_API_URLS\")\n# Split the string into a list\nIMAGE_API_URLS = image_api_urls_str.split(\",\")\n# Print the list to verify\nprint('IMAGE_API_URLS : ',IMAGE_API_URLS)\nllm_images_prompt = open(\"PROMPTS/images_prompt.txt\", \"r\", encoding =\"UTF-8\").read()",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "image_api_urls_str",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "image_api_urls_str = os.getenv(\"IMAGE_API_URLS\")\n# Split the string into a list\nIMAGE_API_URLS = image_api_urls_str.split(\",\")\n# Print the list to verify\nprint('IMAGE_API_URLS : ',IMAGE_API_URLS)\nllm_images_prompt = open(\"PROMPTS/images_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\n#images_prompt = send_prompt(llm_images_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\n#print('image prompt :',images_prompt)\nimages_prompt = \"\"\"1. An image of two individuals engaged in a passionate conversation about politics and social issues, symbolizing the podcast's focus on raising political awareness and democratic participation.\n2. A graphic illustration showcasing various symbols of individual rights and freedoms intertwined with political elements, representing the podcast's theme of advocating for personal liberties and civic engagement.",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "IMAGE_API_URLS",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "IMAGE_API_URLS = image_api_urls_str.split(\",\")\n# Print the list to verify\nprint('IMAGE_API_URLS : ',IMAGE_API_URLS)\nllm_images_prompt = open(\"PROMPTS/images_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\n#images_prompt = send_prompt(llm_images_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\n#print('image prompt :',images_prompt)\nimages_prompt = \"\"\"1. An image of two individuals engaged in a passionate conversation about politics and social issues, symbolizing the podcast's focus on raising political awareness and democratic participation.\n2. A graphic illustration showcasing various symbols of individual rights and freedoms intertwined with political elements, representing the podcast's theme of advocating for personal liberties and civic engagement.\n3. A vibrant visual representation of a diverse group of young people casting their votes in an election, highlighting the importance of youth involvement in shaping political decisions.\n4. A scene depicting a person attending a political rally holding a sign with a powerful message, inspired by the podcast's content on the impact of political participation in the society.",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "llm_images_prompt",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "llm_images_prompt = open(\"PROMPTS/images_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\n#images_prompt = send_prompt(llm_images_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\n#print('image prompt :',images_prompt)\nimages_prompt = \"\"\"1. An image of two individuals engaged in a passionate conversation about politics and social issues, symbolizing the podcast's focus on raising political awareness and democratic participation.\n2. A graphic illustration showcasing various symbols of individual rights and freedoms intertwined with political elements, representing the podcast's theme of advocating for personal liberties and civic engagement.\n3. A vibrant visual representation of a diverse group of young people casting their votes in an election, highlighting the importance of youth involvement in shaping political decisions.\n4. A scene depicting a person attending a political rally holding a sign with a powerful message, inspired by the podcast's content on the impact of political participation in the society.\n5. An abstract artwork with intricate patterns symbolizing the complexity of political influence and societal change, capturing the essence of the podcast's thought-provoking discussions.\n6. A thought-provoking image of a spectrum of diverse voices coming together in unity, reflecting the podcast's theme of inclusivity and the power of shared perspectives in politics.\n7. A dynamic illustration of a vibrant cityscape with people actively engaging in political discourse and activism, representing the podcast's topic of promoting civic engagement among communities.",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "#images_prompt",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "#images_prompt = send_prompt(llm_images_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\n#print('image prompt :',images_prompt)\nimages_prompt = \"\"\"1. An image of two individuals engaged in a passionate conversation about politics and social issues, symbolizing the podcast's focus on raising political awareness and democratic participation.\n2. A graphic illustration showcasing various symbols of individual rights and freedoms intertwined with political elements, representing the podcast's theme of advocating for personal liberties and civic engagement.\n3. A vibrant visual representation of a diverse group of young people casting their votes in an election, highlighting the importance of youth involvement in shaping political decisions.\n4. A scene depicting a person attending a political rally holding a sign with a powerful message, inspired by the podcast's content on the impact of political participation in the society.\n5. An abstract artwork with intricate patterns symbolizing the complexity of political influence and societal change, capturing the essence of the podcast's thought-provoking discussions.\n6. A thought-provoking image of a spectrum of diverse voices coming together in unity, reflecting the podcast's theme of inclusivity and the power of shared perspectives in politics.\n7. A dynamic illustration of a vibrant cityscape with people actively engaging in political discourse and activism, representing the podcast's topic of promoting civic engagement among communities.\n8. A visually appealing infographic showcasing key points related to the podcast's main idea of the intersection between politics and marginalized communities, making the information accessible and engaging.",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "images_prompt",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "images_prompt = \"\"\"1. An image of two individuals engaged in a passionate conversation about politics and social issues, symbolizing the podcast's focus on raising political awareness and democratic participation.\n2. A graphic illustration showcasing various symbols of individual rights and freedoms intertwined with political elements, representing the podcast's theme of advocating for personal liberties and civic engagement.\n3. A vibrant visual representation of a diverse group of young people casting their votes in an election, highlighting the importance of youth involvement in shaping political decisions.\n4. A scene depicting a person attending a political rally holding a sign with a powerful message, inspired by the podcast's content on the impact of political participation in the society.\n5. An abstract artwork with intricate patterns symbolizing the complexity of political influence and societal change, capturing the essence of the podcast's thought-provoking discussions.\n6. A thought-provoking image of a spectrum of diverse voices coming together in unity, reflecting the podcast's theme of inclusivity and the power of shared perspectives in politics.\n7. A dynamic illustration of a vibrant cityscape with people actively engaging in political discourse and activism, representing the podcast's topic of promoting civic engagement among communities.\n8. A visually appealing infographic showcasing key points related to the podcast's main idea of the intersection between politics and marginalized communities, making the information accessible and engaging.\n9. A detailed and dynamic collage featuring various symbols of political activism and social change, inspired by the podcast's in-depth exploration of the impact of current political trends on marginalized groups.\n10. A captivating scene of individuals from different backgrounds coming together in a public square, exchanging ideas and opinions on political matters, capturing the essence of the podcast's theme on promoting dialogue and awareness in the society.\"\"\"",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "#prompts_list",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "#prompts_list = create_images_prompts(images_prompt)\nprompts_list = [\"An image of two individuals engaged in a passionate conversation about politics and social issues, symbolizing the podcast's focus on raising political awareness and democratic participation.\", \"A graphic illustration showcasing various symbols of individual rights and freedoms intertwined with political elements, representing the podcast's theme of advocating for personal liberties and civic engagement.\", 'A vibrant visual representation of a diverse group of young people casting their votes in an election, highlighting the importance of youth involvement in shaping political decisions.', \"A scene depicting a person attending a political rally holding a sign with a powerful message, inspired by the podcast's content on the impact of political participation in the society.\", \"An abstract artwork with intricate patterns symbolizing the complexity of political influence and societal change, capturing the essence of the podcast's thought-provoking discussions.\", \"A thought-provoking image of a spectrum of diverse voices coming together in unity, reflecting the podcast's theme of inclusivity and the power of shared perspectives in politics.\", \"A dynamic illustration of a vibrant cityscape with people actively engaging in political discourse and activism, representing the podcast's topic of promoting civic engagement among communities.\", \"A visually appealing infographic showcasing key points related to the podcast's main idea of the intersection between politics and marginalized communities, making the information accessible and engaging.\", \"A detailed and dynamic collage featuring various symbols of political activism and social change, inspired by the podcast's in-depth exploration of the impact of current political trends on marginalized groups.\", \"A captivating scene of individuals from different backgrounds coming together in a public square, exchanging ideas and opinions on political matters, capturing the essence of the podcast's theme on promoting dialogue and awareness in the society.\"]\nprint(\"prompts list : \",prompts_list)\npath_created_images = create_images(prompts_list,IMAGE_API_URLS,HUGGING_FACE_TOKEN)\nprint('images generated : ', path_created_images )\n# generate vedios",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "prompts_list",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "prompts_list = [\"An image of two individuals engaged in a passionate conversation about politics and social issues, symbolizing the podcast's focus on raising political awareness and democratic participation.\", \"A graphic illustration showcasing various symbols of individual rights and freedoms intertwined with political elements, representing the podcast's theme of advocating for personal liberties and civic engagement.\", 'A vibrant visual representation of a diverse group of young people casting their votes in an election, highlighting the importance of youth involvement in shaping political decisions.', \"A scene depicting a person attending a political rally holding a sign with a powerful message, inspired by the podcast's content on the impact of political participation in the society.\", \"An abstract artwork with intricate patterns symbolizing the complexity of political influence and societal change, capturing the essence of the podcast's thought-provoking discussions.\", \"A thought-provoking image of a spectrum of diverse voices coming together in unity, reflecting the podcast's theme of inclusivity and the power of shared perspectives in politics.\", \"A dynamic illustration of a vibrant cityscape with people actively engaging in political discourse and activism, representing the podcast's topic of promoting civic engagement among communities.\", \"A visually appealing infographic showcasing key points related to the podcast's main idea of the intersection between politics and marginalized communities, making the information accessible and engaging.\", \"A detailed and dynamic collage featuring various symbols of political activism and social change, inspired by the podcast's in-depth exploration of the impact of current political trends on marginalized groups.\", \"A captivating scene of individuals from different backgrounds coming together in a public square, exchanging ideas and opinions on political matters, capturing the essence of the podcast's theme on promoting dialogue and awareness in the society.\"]\nprint(\"prompts list : \",prompts_list)\npath_created_images = create_images(prompts_list,IMAGE_API_URLS,HUGGING_FACE_TOKEN)\nprint('images generated : ', path_created_images )\n# generate vedios",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "path_created_images",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "path_created_images = create_images(prompts_list,IMAGE_API_URLS,HUGGING_FACE_TOKEN)\nprint('images generated : ', path_created_images )\n# generate vedios",
         "detail": "main",
         "documentation": {}
     },

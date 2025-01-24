@@ -1,11 +1,13 @@
 import subprocess
 from mutagen.id3 import ID3, TIT2, TPE1
 
-def fix_music(path_music):
+def fix_music():
 
     # Input and output file paths
-    input_file = "podcust/background.mp3"
-    output_file = "podcust/background_fixed.mp3"
+
+
+    input_file = "podcast/background.mp3"
+    output_file = "podcast/background_fixed.mp3"
 
     # Step 1: Convert the audio file using FFmpeg
     ffmpeg_command = [

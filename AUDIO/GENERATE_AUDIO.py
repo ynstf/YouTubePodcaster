@@ -72,7 +72,7 @@ def save_files(audio_segments):
     return audio_paths
 
 # Create all audios
-def create_audios(proxies,VOICE_ID_MAN,VOICE_ID_WOMAN):
+def create_audios(conversation_list,proxies,VOICE_ID_MAN,VOICE_ID_WOMAN):
     # Generate audio for each chunk and combine
     audio_segments = []
     for i, turn in enumerate(conversation_list):
@@ -139,10 +139,13 @@ def create_one_audio(audios_list,OUTPUT_FILE):
     final_audio = np.concatenate(combined)
 
     # Save the combined audio
-    sf.write(f'podcast/{OUTPUT_FILE}', final_audio, sr)
+    sf.write(OUTPUT_FILE, final_audio, sr)
+
+    return OUTPUT_FILE
 
 # mix audio
 def mix_podcust_audio(path_podcust_audio,path_fixed):
+    path_mixed = "podcast/mixed_podcast.mp3"
     
     # Load the podcast audio (MP3)
     podcast = AudioFileClip(path_podcust_audio)
@@ -153,7 +156,7 @@ def mix_podcust_audio(path_podcust_audio,path_fixed):
     print("Music duration:", music.duration)
 
     # Adjust the volume of the background music (optional)
-    music = music.volumex(0.4)  # Reduce volume by 50%
+    music = music.volumex(0.5)  # Reduce volume by 50%
 
     # Ensure the music is the same length as the podcast
     if music.duration < podcast.duration:
@@ -167,8 +170,8 @@ def mix_podcust_audio(path_podcust_audio,path_fixed):
     mixed_audio = CompositeAudioClip([podcast, music])
 
     # Export the mixed audio to a new file
-    mixed_audio.write_audiofile("mixed_podcast.mp3", fps=44100)
+    mixed_audio.write_audiofile(path_mixed, fps=44100)
 
-    print("Mixed audio saved as 'mixed_podcast.mp3'")
+    print(f"Mixed audio saved as '{path_mixed}'")
 
-    return "mixed_podcast.mp3"
+    return path_mixed
