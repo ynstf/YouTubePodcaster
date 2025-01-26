@@ -283,6 +283,14 @@
         "documentation": {}
     },
     {
+        "label": "split_conversation",
+        "importPath": "LLM.GENERATE_PODCUST",
+        "description": "LLM.GENERATE_PODCUST",
+        "isExtraImport": true,
+        "detail": "LLM.GENERATE_PODCUST",
+        "documentation": {}
+    },
+    {
         "label": "create_conversation",
         "importPath": "LLM.GENERATE_PODCUST",
         "description": "LLM.GENERATE_PODCUST",
@@ -475,6 +483,14 @@
         "documentation": {}
     },
     {
+        "label": "BeautifulSoup",
+        "importPath": "bs4",
+        "description": "bs4",
+        "isExtraImport": true,
+        "detail": "bs4",
+        "documentation": {}
+    },
+    {
         "label": "scipy",
         "kind": 6,
         "isExtraImport": true,
@@ -551,7 +567,7 @@
         "kind": 2,
         "importPath": "IMAGE.GENERATE_IMAGES",
         "description": "IMAGE.GENERATE_IMAGES",
-        "peekOfCode": "def create_images_prompts(res):\n    # Split the input text into individual prompts\n    prompts_list = [line.strip() for line in res.split(\"\\n\") if line.strip()]\n    # Remove the numbering (e.g., \"1. \", \"2. \") from each prompt\n    prompts_list = [prompt.split(\". \", 1)[1] for prompt in prompts_list]\n    # Output the list of prompts\n    print(prompts_list)\n    return prompts_list\ndef query(API_URL,payload, headers, retries=3, delay=10):\n    for i in range(retries):",
+        "peekOfCode": "def create_images_prompts(res):\n    # Split the input text into individual prompts\n    res = res.replace(\"**\",\"\")\n    prompts_list = [line.strip() for line in res.split(\"\\n\") if line.strip()]\n    # Remove the introductory line (if it exists)\n    if prompts_list and prompts_list[0].startswith(\"Okay, here are\"):\n        prompts_list = prompts_list[1:]  # Skip the first line\n    # Remove the numbering (e.g., \"1. \", \"2. \") from each prompt\n    cleaned_prompts = []\n    for prompt in prompts_list:",
         "detail": "IMAGE.GENERATE_IMAGES",
         "documentation": {}
     },
@@ -578,7 +594,7 @@
         "kind": 2,
         "importPath": "LLM.GENERATE_PODCUST",
         "description": "LLM.GENERATE_PODCUST",
-        "peekOfCode": "def send_prompt(prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL):\n    headers = {\n        \"Authorization\": f\"Bearer {OPENROUTER_API_KEY}\",\n        \"Content-Type\": \"application/json\"\n    }\n    final_prompt = prompt + text\n    data = {\n        \"model\": MODEL,  # Use the free model\n        \"messages\": [\n            {\"role\": \"user\", \"content\": final_prompt}",
+        "peekOfCode": "def send_prompt(prompt, text, OPENROUTER_API_URL, OPENROUTER_API_KEY, MODEL):\n    MODELS = MODEL.split(',')  # Split the models into a list\n    max_retries = 3  # Maximum number of retries per model\n    delay = 60  # Delay between retries in seconds\n    headers = {\n        \"Authorization\": f\"Bearer {OPENROUTER_API_KEY}\",\n        \"Content-Type\": \"application/json\"\n    }\n    final_prompt = prompt + text\n    for model in MODELS:  # Iterate through each model",
         "detail": "LLM.GENERATE_PODCUST",
         "documentation": {}
     },
@@ -587,7 +603,7 @@
         "kind": 2,
         "importPath": "LLM.GENERATE_PODCUST",
         "description": "LLM.GENERATE_PODCUST",
-        "peekOfCode": "def split_conversation(conversation):\n    turns = conversation.split(\"\\n\")\n    roles = [\"Man\", \"Woman\"]\n    conversation_list = []\n    role_index = 0\n    for turn in turns:\n        if turn.strip():  # Skip empty lines\n            role = roles[role_index % len(roles)]\n            conversation_list.append({\"role\": role, \"text\": turn.strip()})\n            role_index += 1",
+        "peekOfCode": "def split_conversation(conversation):\n    # Split the conversation into <speak> blocks\n    conversation = conversation.replace('```xml\\n',\"\")\n    conversation = conversation.replace('```',\"\")\n    conversation = conversation.replace('xml',\"\")\n    turns = conversation.split(\"</speak>\")\n    roles = [\"Man\", \"Woman\"]\n    conversation_list = []\n    role_index = 0\n    for turn in turns:",
         "detail": "LLM.GENERATE_PODCUST",
         "documentation": {}
     },
@@ -709,6 +725,15 @@
         "documentation": {}
     },
     {
+        "label": "get_proxies",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def get_proxies():\n    # URL of the website\n    url = \"https://free-proxy-list.net/\"\n    # Send a GET request to the website\n    response = requests.get(url)\n    # Check if the request was successful\n    if response.status_code == 200:\n        # Parse the HTML content using BeautifulSoup\n        soup = BeautifulSoup(response.text, 'html.parser')\n        # Find the table containing the proxies",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
         "label": "delete_files",
         "kind": 2,
         "importPath": "app",
@@ -767,7 +792,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "OPENROUTER_API_KEY = os.getenv(\"OPENROUTER_API_KEY\")\nOPENROUTER_API_URL = os.getenv(\"OPENROUTER_API_URL\")\nMODEL = os.getenv(\"MODEL\")\nconversation_prompt = open(\"PROMPTS/conversation_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\ntime.sleep(5)\n# Create the conversation\nprint(\"creating conversation ....\")\nconversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"conversation created by llm\")\ntime.sleep(5)",
+        "peekOfCode": "OPENROUTER_API_KEY = os.getenv(\"OPENROUTER_API_KEY\")\nOPENROUTER_API_URL = os.getenv(\"OPENROUTER_API_URL\")\nMODEL = os.getenv(\"MODEL\")\nconversation_prompt = open(\"PROMPTS/conversation_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\ntime.sleep(5)\n# Create the conversation\nprint(\"creating conversation ....\")\nconversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\n#conversation = open(\"conversation.txt\", \"r\", encoding =\"UTF-8\").read()\n#conversation_list = split_conversation(conversation)",
         "detail": "app",
         "documentation": {}
     },
@@ -776,7 +801,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "OPENROUTER_API_URL = os.getenv(\"OPENROUTER_API_URL\")\nMODEL = os.getenv(\"MODEL\")\nconversation_prompt = open(\"PROMPTS/conversation_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\ntime.sleep(5)\n# Create the conversation\nprint(\"creating conversation ....\")\nconversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"conversation created by llm\")\ntime.sleep(5)\n# Access the variables",
+        "peekOfCode": "OPENROUTER_API_URL = os.getenv(\"OPENROUTER_API_URL\")\nMODEL = os.getenv(\"MODEL\")\nconversation_prompt = open(\"PROMPTS/conversation_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\ntime.sleep(5)\n# Create the conversation\nprint(\"creating conversation ....\")\nconversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\n#conversation = open(\"conversation.txt\", \"r\", encoding =\"UTF-8\").read()\n#conversation_list = split_conversation(conversation)\nprint(\"conversation created by llm\")",
         "detail": "app",
         "documentation": {}
     },
@@ -785,7 +810,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "MODEL = os.getenv(\"MODEL\")\nconversation_prompt = open(\"PROMPTS/conversation_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\ntime.sleep(5)\n# Create the conversation\nprint(\"creating conversation ....\")\nconversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"conversation created by llm\")\ntime.sleep(5)\n# Access the variables\nVOICE_ID_MAN = os.getenv(\"VOICE_ID_MAN\")",
+        "peekOfCode": "MODEL = os.getenv(\"MODEL\")\nconversation_prompt = open(\"PROMPTS/conversation_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\ntime.sleep(5)\n# Create the conversation\nprint(\"creating conversation ....\")\nconversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\n#conversation = open(\"conversation.txt\", \"r\", encoding =\"UTF-8\").read()\n#conversation_list = split_conversation(conversation)\nprint(\"conversation created by llm\")\nprint(\"getting proxies ....\")",
         "detail": "app",
         "documentation": {}
     },
@@ -794,7 +819,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "conversation_prompt = open(\"PROMPTS/conversation_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\ntime.sleep(5)\n# Create the conversation\nprint(\"creating conversation ....\")\nconversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"conversation created by llm\")\ntime.sleep(5)\n# Access the variables\nVOICE_ID_MAN = os.getenv(\"VOICE_ID_MAN\")\nVOICE_ID_WOMAN = os.getenv(\"VOICE_ID_WOMAN\")",
+        "peekOfCode": "conversation_prompt = open(\"PROMPTS/conversation_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\ntime.sleep(5)\n# Create the conversation\nprint(\"creating conversation ....\")\nconversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\n#conversation = open(\"conversation.txt\", \"r\", encoding =\"UTF-8\").read()\n#conversation_list = split_conversation(conversation)\nprint(\"conversation created by llm\")\nprint(\"getting proxies ....\")\ntry:",
         "detail": "app",
         "documentation": {}
     },
@@ -803,7 +828,25 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "conversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\nprint(\"conversation created by llm\")\ntime.sleep(5)\n# Access the variables\nVOICE_ID_MAN = os.getenv(\"VOICE_ID_MAN\")\nVOICE_ID_WOMAN = os.getenv(\"VOICE_ID_WOMAN\")\n# Load the proxies from the JSON file\nprint(\"Loading Proxies ....\")\nwith open(\"proxies.json\", \"r\") as file:\n    proxies = json.load(file)",
+        "peekOfCode": "conversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\n#conversation = open(\"conversation.txt\", \"r\", encoding =\"UTF-8\").read()\n#conversation_list = split_conversation(conversation)\nprint(\"conversation created by llm\")\nprint(\"getting proxies ....\")\ntry:\n    get_proxies()\n    print(\"proxies saved !\")\nexcept:\n    print(\"proxies not saved !\")",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "#conversation",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "#conversation = open(\"conversation.txt\", \"r\", encoding =\"UTF-8\").read()\n#conversation_list = split_conversation(conversation)\nprint(\"conversation created by llm\")\nprint(\"getting proxies ....\")\ntry:\n    get_proxies()\n    print(\"proxies saved !\")\nexcept:\n    print(\"proxies not saved !\")\ntime.sleep(5)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "#conversation_list",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "#conversation_list = split_conversation(conversation)\nprint(\"conversation created by llm\")\nprint(\"getting proxies ....\")\ntry:\n    get_proxies()\n    print(\"proxies saved !\")\nexcept:\n    print(\"proxies not saved !\")\ntime.sleep(5)\n# Access the variables",
         "detail": "app",
         "documentation": {}
     },
@@ -1012,6 +1055,15 @@
         "description": "app",
         "peekOfCode": "share_prompt = open(\"PROMPTS/share_prompt.txt\", \"r\", encoding =\"UTF-8\").read()\nprint('sharing is :', UPLOAD_TO_YOUTUBE)\nif UPLOAD_TO_YOUTUBE == \"ON\":\n    print(\"generating infos ....\")\n    video_infos = send_prompt(share_prompt,conversation,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)\n    title, description, tags = split_infos(video_infos)\n    print(\"title, description, tags generated\")\n    time.sleep(1)\n    with open(\"video_infos.txt\", \"w\", encoding =\"UTF-8\") as file:\n        content = f\"\"\"",
         "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "delete_files",
+        "kind": 2,
+        "importPath": "delete",
+        "description": "delete",
+        "peekOfCode": "def delete_files(file_list):\n    \"\"\"\n    Deletes a list of files.\n    Args:\n        file_list (list): A list of file paths to delete.\n    \"\"\"\n    for file_path in file_list:\n        try:\n            # Check if the file exists\n            if os.path.exists(file_path):",
+        "detail": "delete",
         "documentation": {}
     },
     {

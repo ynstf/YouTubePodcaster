@@ -2,7 +2,7 @@ import requests
 import time
 
 
-def create_images_prompts(res):
+"""def create_images_prompts(res):
     # Split the input text into individual prompts
     prompts_list = [line.strip() for line in res.split("\n") if line.strip()]
 
@@ -13,6 +13,32 @@ def create_images_prompts(res):
     print(prompts_list)
 
     return prompts_list
+"""
+
+
+def create_images_prompts(res):
+    # Split the input text into individual prompts
+    res = res.replace("**","")
+    prompts_list = [line.strip() for line in res.split("\n") if line.strip()]
+
+    # Remove the introductory line (if it exists)
+    if prompts_list and prompts_list[0].startswith("Okay, here are"):
+        prompts_list = prompts_list[1:]  # Skip the first line
+
+    # Remove the numbering (e.g., "1. ", "2. ") from each prompt
+    cleaned_prompts = []
+    for prompt in prompts_list:
+        # Check if the line starts with a number followed by a dot and a space
+        if ". " in prompt:
+            # Split the line and take the part after the numbering
+            cleaned_prompts.append(prompt.split(". ", 1)[1])
+        else:
+            # If the line doesn't match the expected format, add it as-is
+            cleaned_prompts.append(prompt)
+
+    # Output the list of prompts
+    print(cleaned_prompts)
+    return cleaned_prompts
 
 
 def query(API_URL,payload, headers, retries=3, delay=10):

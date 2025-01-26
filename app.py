@@ -3,7 +3,7 @@ import os
 import json
 import time
 from REDDIT.GENERATE_REDDIT import create_content
-from LLM.GENERATE_PODCUST import create_conversation,send_prompt
+from LLM.GENERATE_PODCUST import create_conversation,send_prompt,split_conversation
 from AUDIO.GENERATE_AUDIO import create_audios, create_one_audio, mix_podcust_audio
 from MUSIC.GENERATE_MUSIC import generate_music
 from MUSIC.FIX_MUSIC import fix_music
@@ -11,7 +11,52 @@ from IMAGE.GENERATE_IMAGES import create_images_prompts, create_images
 from VIDEO.GENERATE_VIDEO import generate_video
 from UPLOAD.SHARE_VIDEO import share_video,split_infos, get_authenticated_service
 
+import requests
+from bs4 import BeautifulSoup
+import json
 
+def get_proxies():
+    # URL of the website
+    url = "https://free-proxy-list.net/"
+
+    # Send a GET request to the website
+    response = requests.get(url)
+
+    # Check if the request was successful
+    if response.status_code == 200:
+        # Parse the HTML content using BeautifulSoup
+        soup = BeautifulSoup(response.text, 'html.parser')
+        
+        # Find the table containing the proxies
+        table = soup.find('table', {'class': 'table table-striped table-bordered'})
+        
+        # Initialize a list to store the proxies with HTTPS support
+        https_proxies = []
+        
+        # Iterate over each row in the table (skip the header row)
+        for row in table.find_all('tr')[1:]:
+            columns = row.find_all('td')
+            
+            # Extract the relevant information
+            ip_address = columns[0].text
+            port = columns[1].text
+            https_support = columns[6].text
+            
+            # Check if HTTPS support is "yes"
+            if https_support.lower() == 'yes':
+                proxy_url = f"http://{ip_address}:{port}"
+                https_proxies.append({
+                    "http": proxy_url,
+                    "https": proxy_url
+                })
+        
+        # Save the proxies to a JSON file
+        with open('proxies.json', 'w') as f:
+            json.dump(https_proxies, f, indent=4)
+        
+        print("Proxies saved to proxies.json")
+    else:
+        print(f"Failed to retrieve the webpage. Status code: {response.status_code}")
 
 
 print("START !!!!!!!!!!!!!!!!!!!!!!!!!!")
@@ -67,8 +112,16 @@ time.sleep(5)
 # Create the conversation
 print("creating conversation ....")
 conversation_list = create_conversation(conversation_prompt,text,OPENROUTER_API_URL,OPENROUTER_API_KEY,MODEL)
+#conversation = open("conversation.txt", "r", encoding ="UTF-8").read()
+#conversation_list = split_conversation(conversation)
 print("conversation created by llm")
 
+print("getting proxies ....")
+try:
+    get_proxies()
+    print("proxies saved !")
+except:
+    print("proxies not saved !")
 
 time.sleep(5)
 

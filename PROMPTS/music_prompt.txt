@@ -1,4 +1,5 @@
-    Make me a prompt to generate a song about a podcast.
-    and I want the music to be calme.
+    Create a short, one-line description (5 to 9 sentences) for a calm song inspired by a podcast.
     Include details like instruments, tempo, and atmosphere.
-    The podcast is about : 
+    Do not include any introductions or explanations like "Okay, here's a prompt" or "Description Phrase".
+    Just provide the description directly.
+    The podcast is about :  

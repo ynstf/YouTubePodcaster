@@ -119,9 +119,11 @@ def create_audios(conversation_list,proxies,VOICE_ID_MAN,VOICE_ID_WOMAN):
             response = requests.post(url, json=data, headers=headers)
             if response.status_code == 200 and response.headers.get('Content-Type') == 'audio/mpeg':
                 audio = response.content
-            if audio:
-                audio_segments.append(audio)
-            print(f"All proxies failed for chunk {i + 1}. Skipping this chunk.")
+                if audio:
+                    audio_segments.append(audio)
+                    print("audio generatede without proxies")
+            else:
+                print(f"All proxies failed for chunk {i + 1}. Skipping this chunk.")
     save_files(audio_segments)
     audio_paths = save_files(audio_segments)
     return audio_paths

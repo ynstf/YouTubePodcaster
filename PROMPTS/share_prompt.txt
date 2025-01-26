@@ -1,6 +1,8 @@
     Generate a string of detailes for a video about podcast topic i will give you.
-    the vedio will share in youtube so i want the title, the description and tags
-    Separate each prompt with this symbol(|)
-    so the filas stractur sould be like that : example "title|description|tags list"
-    i want all infos in arabic.
+    The video will be shared on YouTube, so I want the title, description, and tags.
+    Separate each part with this symbol: (|)
+    The final structure should be like this: "title|description|tags list"
+    Ensure all information is in Arabic.
+    Do not include any labels like "العنوان:" or "الوصف:" or **الوسوم:** .....
+    Just provide the text directly.
     the podcast topic: 
